@@ -25,6 +25,7 @@ export const DivAdress = styled.div`
 
   a {
     color: ${(props) => props.theme.purpleDark};
+    font-family: "Roboto", sans-serif;
     text-decoration: none;
   }
 
