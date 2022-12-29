@@ -4,8 +4,9 @@ export const DivCard = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 10rem;
+  margin-left: 3.75rem;
   margin-top: 3.5rem;
+  margin-bottom: 2.25rem;
 
   width: 16rem;
   height: 19rem;
@@ -115,4 +116,7 @@ export const ButtonToCart = styled.button`
 
   border-radius: 6px;
 
+  &:hover {
+    opacity: 0.8;
+  }
 `;

@@ -7,3 +7,11 @@ export const TitleMenu = styled.span`
   font-weight: "Bold";
   font-family: "Baloo 2", sans-serif;
 `;
+
+export const ContainerMenu = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+
+  overflow: hidden;
+  padding: 0 8rem;
+`

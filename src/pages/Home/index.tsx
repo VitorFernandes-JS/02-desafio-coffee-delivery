@@ -1,7 +1,9 @@
 import { Card } from "../../components/Card";
 import { Header } from "../../components/Header";
 import { InformationsCoffee } from "../../components/InformationsCoffee";
-import { TitleMenu } from "./style";
+import { ContainerMenu, TitleMenu } from "./style";
+
+import { coffee } from "../../utils/coffee";
 
 export function Home() {
   return (
@@ -10,7 +12,20 @@ export function Home() {
       <InformationsCoffee />
 
       <TitleMenu>Nossos cafés</TitleMenu>
-      <Card/>
+      <ContainerMenu>
+        {coffee.map((item) => {
+          return (
+            <Card
+            // key={item.id}
+            // title={item.title}
+            // description={item.description}
+            // category={item.category}
+            // value={item.value}
+            // img={item.image}
+            />
+          );
+        })}
+      </ContainerMenu>
     </div>
   );
 }
