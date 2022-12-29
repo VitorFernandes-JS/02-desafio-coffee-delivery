@@ -44,7 +44,7 @@ export const InformationsItens = styled.div`
     height: 22rem;
 
     flex-wrap: wrap;
-    margin-left: 60%;
+    margin-left: 50%;
     margin-top: -15rem;
 
     &:hover {
@@ -63,7 +63,7 @@ const GroupBase = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  width: 50%;
+  width: 60%;
 `;
 
 export const GroupShoppingCartAndPackage = styled(GroupBase)`

@@ -19,7 +19,7 @@ export const coffee = [
         id: uuidv4(),
         image: Americano,
         category: "Tradicional",
-        title: "Expresso Tradicional",
+        title: "Isabella",
         description: "O tradicional café feito com água quente e grãos moídos",
         value: 9.90
     },
