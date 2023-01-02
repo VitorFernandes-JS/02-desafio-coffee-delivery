@@ -4,7 +4,7 @@ export const DivCard = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 3.75rem;
+  margin-left: 3rem;
   margin-top: 3.5rem;
   margin-bottom: 2.25rem;
 

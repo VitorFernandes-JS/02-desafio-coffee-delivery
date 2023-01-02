@@ -9,32 +9,43 @@ import {
   Image,
   Title,
   Value,
-  DivButtonsRemoveAndAdd
+  DivButtonsRemoveAndAdd,
 } from "./style";
 
-import { coffee } from "../../utils/coffee";
-
-import img from "../../assets/Americano.png";
 import { Minus, Plus, ShoppingCart } from "phosphor-react";
 
-export function Card() {
+export interface CardProps {
+  title: string;
+  description: string;
+  category: string;
+  value: number;
+  image: string;
+}
+
+export function Card({
+  title,
+  description,
+  category,
+  value,
+  image,
+}: CardProps) {
   return (
     <DivCard>
-      <Image src={img} />
+      <Image src={image} />
       <Category>
-        <span>{coffee[0].category}</span>
+        <span>{category}</span>
       </Category>
       <Title>
-        <span>{coffee[0].title}</span>
+        <span>{title}</span>
       </Title>
       <Description>
-        <span>{coffee[0].description}</span>
+        <span>{description}</span>
       </Description>
 
       <DivValueAndButtons>
         <Value>
           <span>
-            {coffee[0].value.toLocaleString("pt-br", {
+            {value.toLocaleString("pt-br", {
               style: "currency",
               currency: "BRL",
             })}
@@ -52,7 +63,7 @@ export function Card() {
         </DivButtonsRemoveAndAdd>
 
         <ButtonToCart>
-          <ShoppingCart weight="fill" size={20} color={"#F3F2F2"}/>
+          <ShoppingCart weight="fill" size={20} color={"#F3F2F2"} />
         </ButtonToCart>
       </DivValueAndButtons>
     </DivCard>

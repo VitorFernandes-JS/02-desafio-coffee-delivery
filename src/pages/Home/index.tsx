@@ -16,12 +16,12 @@ export function Home() {
         {coffee.map((item) => {
           return (
             <Card
-            // key={item.id}
-            // title={item.title}
-            // description={item.description}
-            // category={item.category}
-            // value={item.value}
-            // img={item.image}
+              key={item.id}
+              title={item.title}
+              description={item.description}
+              category={item.category}
+              value={item.value}
+              image={item.image}
             />
           );
         })}
