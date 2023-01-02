@@ -16,6 +16,11 @@ export const DivCard = styled.div`
   background-color: ${(props) => props.theme.card};
 `;
 
+export const DivCategory = styled.div`
+  display: flex;
+  gap: 0.5rem;
+`;
+
 export const Image = styled.img`
   width: 7.5rem;
   height: 7.5rem;

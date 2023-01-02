@@ -19,6 +19,8 @@ export function Home() {
               key={item.id}
               title={item.title}
               description={item.description}
+              secondeCategory={item.secondeCategory}
+              thirdCategory={item.thirdCategory}
               category={item.category}
               value={item.value}
               image={item.image}

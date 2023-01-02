@@ -10,6 +10,7 @@ import {
   Title,
   Value,
   DivButtonsRemoveAndAdd,
+  DivCategory
 } from "./style";
 
 import { Minus, Plus, ShoppingCart } from "phosphor-react";
@@ -18,6 +19,8 @@ export interface CardProps {
   title: string;
   description: string;
   category: string;
+  secondeCategory?: string;
+  thirdCategory?: string;
   value: number;
   image: string;
 }
@@ -26,15 +29,29 @@ export function Card({
   title,
   description,
   category,
+  secondeCategory,
+  thirdCategory,
   value,
   image,
 }: CardProps) {
   return (
     <DivCard>
       <Image src={image} />
-      <Category>
-        <span>{category}</span>
-      </Category>
+      <DivCategory>
+        <Category>
+          <span>{category}</span>
+        </Category>
+        {secondeCategory && (
+          <Category>
+            <span>{secondeCategory}</span>
+          </Category>
+        )}
+        {thirdCategory && (
+          <Category>
+            <span>{thirdCategory}</span>
+          </Category>
+        )}
+      </DivCategory>
       <Title>
         <span>{title}</span>
       </Title>
