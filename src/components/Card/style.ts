@@ -4,12 +4,12 @@ export const DivCard = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 3rem;
+  margin-left: 1.025rem;
   margin-top: 3.5rem;
   margin-bottom: 2.25rem;
 
   width: 16rem;
-  height: 19rem;
+  height: 18rem;
   border-bottom-left-radius: 36px;
   border-top-right-radius: 36px;
 
