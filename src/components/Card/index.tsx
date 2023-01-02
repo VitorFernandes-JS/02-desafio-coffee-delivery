@@ -10,7 +10,7 @@ import {
   Title,
   Value,
   DivButtonsRemoveAndAdd,
-  DivCategory
+  DivCategory,
 } from "./style";
 
 import { Minus, Plus, ShoppingCart } from "phosphor-react";

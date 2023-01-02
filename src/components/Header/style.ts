@@ -35,7 +35,8 @@ export const DivAdress = styled.div`
   }
 `;
 
-export const DivShoppingCart = styled.div`
+export const ButtonShoppingCart = styled.button`
+  border: none;
   display: flex;
   align-items: center;
   background-color: ${(props) => props.theme.yellowLight};
