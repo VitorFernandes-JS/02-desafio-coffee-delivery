@@ -1,109 +1,104 @@
-import {
-  Bank,
-  CreditCard,
-  CurrencyDollar,
-  MapPinLine,
-  Minus,
-  Money,
-  Plus,
-  Trash,
-} from "phosphor-react";
+import { MapPinLine, Minus, Plus, Trash } from "phosphor-react";
 import { Header } from "../../components/Header";
-import { BodyAddress, CartContainer, DivMapAndText } from "./style";
+import {
+  BodyAddress,
+  CartContainer,
+  DivMapAndText,
+  InputCEP,
+  InputCity,
+  InputComplement,
+  InputDistrict,
+  InputNumber,
+  InputState,
+  InputStreet,
+} from "./style";
 
 import Cafe from "../../assets/Americano.png";
+import { CardPaymentMethods } from "../../components/CardPaymentMethods";
 
 export function Cart() {
+  
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+  }
+
   return (
-    <>
+    <div>
       <Header />
       <CartContainer>
-        <h2>Complete seu pedido</h2>
+        <form id="form-cart">
+          <h2>Complete seu pedido</h2>
 
-        <BodyAddress>
-          <DivMapAndText>
+          <BodyAddress>
+            <DivMapAndText>
+              <div>
+                <MapPinLine
+                  size={23}
+                  style={{ marginTop: -2 }}
+                  color="#C47F17"
+                />
+              </div>
+              <div>
+                <h4>Endereço de Entrega </h4>
+                <span>Informe o endereço onde deseja receber seu pedido</span>
+              </div>
+            </DivMapAndText>
+
             <div>
-              <MapPinLine size={24} style={{ marginTop: -2 }} color="#C47F17" />
+              <InputCEP title="CEP" placeholder="CEP" required />
+              <InputStreet title="Rua" placeholder="Rua" required />
             </div>
             <div>
-              <h4>Endereço de Entrega </h4>
-              <span>Informe o endereço onde deseja receber seu pedido</span>
+              <InputNumber title="Número" placeholder="Número" required />
+              <InputComplement title="Complemento" placeholder="Complemento" />
             </div>
-          </DivMapAndText>
-
-          <div>
-            <input title="CEP" placeholder="CEP" />
-            <input title="Rua" placeholder="Rua" />
-          </div>
-          <div>
-            <input title="Número" placeholder="Número" />
-            <input title="Complemento" placeholder="Complemento" />
-          </div>
-          <div>
-            <input title="Bairro" placeholder="Bairro" />
-            <input title="Cidade" placeholder="Cidade" />
-            <input title="UF" placeholder="UF" />
-          </div>
-        </BodyAddress>
-
-        <div>
-          <div>
-            <CurrencyDollar size={24} />
-            Pagamento <br /> O pagamento é feito na entrega. Escolha a forma que
-            deseja pagar
-          </div>
-
-          <div>
-            <button>
-              <CreditCard size={24} />
-              Cartão de Crédito
-            </button>
-            <button>
-              <Bank size={24} />
-              Cartão de Débito
-            </button>
-            <button>
-              <Money size={24} />
-              Dinheiro
-            </button>
-          </div>
-        </div>
-
-        <h2>Cafés selecionados</h2>
-        <div>
-          <div>
-            <img src={Cafe} />
-          </div>
-          <div>
-            <h3>Nome do café</h3>
             <div>
-              <button>
-                <Minus size={24} />
-                <span>1</span>
-                <Plus size={24} />
-              </button>
-              <button>
-                <Trash size={24} />
-                Remover
-              </button>
-              <span>
-                <strong>R$ 10,00</strong>
-              </span>
+              <InputDistrict title="Bairro" placeholder="Bairro" required />
+              <InputCity title="Cidade" placeholder="Cidade" required />
+              <InputState title="UF" placeholder="UF" required />
+            </div>
+          </BodyAddress>
 
-              <span>Total de itens:</span>
-              <span>R$ 29,70</span>
+          <CardPaymentMethods />
 
-              <span>Frete:</span>
-              <span>R$ 5,00</span>
+          <h2>Cafés selecionados</h2>
+          <div>
+            <div>
+              <img src={Cafe} />
+            </div>
+            <div>
+              <h3>Nome do café</h3>
+              <div>
+                <button>
+                  <Minus size={24} />
+                  <span>1</span>
+                  <Plus size={24} />
+                </button>
+                <button>
+                  <Trash size={24} />
+                  Remover
+                </button>
+                <span>
+                  <strong>R$ 10,00</strong>
+                </span>
 
-              <strong>Total:</strong>
-              <strong>R$ 34,70</strong>
+                <span>Total de itens:</span>
+                <span>R$ 29,70</span>
 
-              <button>CONFIRMAR PEDIDO</button>
+                <span>Frete:</span>
+                <span>R$ 5,00</span>
+
+                <strong>Total:</strong>
+                <strong>R$ 34,70</strong>
+
+                <button type="submit" onClick={() => handleSubmit}>
+                  CONFIRMAR PEDIDO
+                </button>
+              </div>
             </div>
           </div>
-        </div>
+        </form>
       </CartContainer>
-    </>
+    </div>
   );
 }
