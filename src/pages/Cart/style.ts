@@ -31,6 +31,13 @@ export const BodyAddress = styled.div`
   }
 `;
 
+export const DivInformationsCoffeeInCart = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  width: 40%;
+`
+
 export const DivMapAndText = styled.div`
   margin-bottom: 2rem;
 
