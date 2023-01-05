@@ -69,6 +69,22 @@ export const ButtonLessAndmore = styled.button`
   }
 `;
 
+const Button = styled.button`
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  color: ${(props) => props.theme.purple};
+
+  &:hover {
+    opacity: 0.6;
+  }
+`;
+
+export const ButtonRemove = styled(Button)``;
+
+export const ButtonAdd = styled(Button)``;
+
 export const ButtonRemoveToCart = styled.button`
   border-radius: 6px;
   border: none;
@@ -80,6 +96,13 @@ export const ButtonRemoveToCart = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  transition: opacity 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
 
   span {
     font-size: 0.8rem;

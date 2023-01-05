@@ -138,4 +138,94 @@ export const DivInformationsCoffeeInCart = styled.div`
 
 export const DivInformationsOrder = styled.div`
   display: flex;
+  flex-direction: column;
+`;
+
+export const DivTotalItems = styled.div`
+  display: flex;
+  align-items: center;
+
+  margin-bottom: 0.75rem;
+
+  span:first-child {
+    font-family: "Roboto", sans-serif;
+    font-size: 0.875rem;
+
+    color: ${({ theme }) => theme.text};
+  }
+
+  span:last-child {
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+
+    color: ${({ theme }) => theme.text};
+
+    margin-left: 10rem;
+  }
+`;
+
+export const DivFreight = styled.div`
+  display: flex;
+  align-items: center;
+
+  margin-bottom: 0.75rem;
+
+  span:first-child {
+    font-family: "Roboto", sans-serif;
+    font-size: 0.875rem;
+
+    color: ${({ theme }) => theme.text};
+  }
+
+  span:last-child {
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+
+    color: ${({ theme }) => theme.text};
+
+    margin-left: 13.3rem;
+  }
+`;
+
+export const DivTotal = styled.div`
+  display: flex;
+  align-items: center;
+
+  margin-bottom: 1.25rem;
+
+  strong:first-child {
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+
+    color: ${({ theme }) => theme.text};
+  }
+
+  strong:last-child {
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+
+    color: ${({ theme }) => theme.text};
+
+    margin-left: 12.3rem;
+  }
+`;
+
+export const ButtonConfirmOrder = styled.button`
+  background-color: ${({ theme }) => theme.yellow};
+  color: ${({ theme }) => theme.white};
+
+  border: none;
+  border-radius: 4px;
+
+  padding: 0.75rem 1rem;
+
+  font-family: "Roboto", sans-serif;
+  font-size: 0.875rem;
+
+  transition: opacity 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
 `
