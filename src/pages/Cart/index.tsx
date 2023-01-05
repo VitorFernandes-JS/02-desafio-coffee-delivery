@@ -1,4 +1,4 @@
-import { MapPinLine, Minus, Plus, Trash } from "phosphor-react";
+import { MapPinLine } from "phosphor-react";
 import { Header } from "../../components/Header";
 import {
   BodyAddress,
@@ -12,17 +12,20 @@ import {
   InputNumber,
   InputState,
   InputStreet,
+  TitleCoffees,
+  DivAdressAndMethodsPayment,
+  DivTitleCoffeeAndInformationsCoffe,
 } from "./style";
 
-import Cafe from "../../assets/Americano.png";
 import { CardPaymentMethods } from "../../components/CardPaymentMethods";
+import { CardCoffeeHorizontal } from "../../components/CardCoffeeHorizontal";
 
 export function Cart() {
   return (
-    <div>
+    <>
       <Header />
       <CartContainer>
-        <form id="form-cart">
+        <DivAdressAndMethodsPayment>
           <h2>Complete seu pedido</h2>
 
           <BodyAddress>
@@ -56,26 +59,14 @@ export function Cart() {
           </BodyAddress>
 
           <CardPaymentMethods />
+        </DivAdressAndMethodsPayment>
+
+        <DivTitleCoffeeAndInformationsCoffe>
+          <TitleCoffees>Cafés selecionados</TitleCoffees>
 
           <DivInformationsCoffeeInCart>
-            <h2>Cafés selecionados</h2>
-            <div>
-              <div>
-                <img src={Cafe} />
-              </div>
-              <div>
-                <h3>Nome do café</h3>
-                <div>
-                  <button>
-                    <Minus size={24} />
-                    <span>1</span>
-                    <Plus size={24} />
-                  </button>
-                  <button>
-                    <Trash size={24} />
-                    Remover
-                  </button>
-                  <span>
+            <CardCoffeeHorizontal />
+            {/* <span>
                     <strong>R$ 10,00</strong>
                   </span>
 
@@ -88,13 +79,10 @@ export function Cart() {
                   <strong>Total:</strong>
                   <strong>R$ 34,70</strong>
 
-                  <button type="submit">CONFIRMAR PEDIDO</button>
-                </div>
-              </div>
-            </div>
+                  <button onClick={() => {}}>CONFIRMAR PEDIDO</button> */}
           </DivInformationsCoffeeInCart>
-        </form>
+        </DivTitleCoffeeAndInformationsCoffe>
       </CartContainer>
-    </div>
+    </>
   );
 }

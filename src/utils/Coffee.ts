@@ -15,7 +15,7 @@ import Latte from "../assets/Latte.png";
 import Macchiato from "../assets/Macchiato.png";
 import Mocaccino from "../assets/Mochaccino.png";
 
-import { CardProps } from "../components/Card";
+import { CardProps } from "../components/CardCoffeeVertical";
 
 export interface CoffeeProps extends CardProps {
   id: string;

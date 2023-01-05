@@ -1,4 +1,4 @@
-import { Card } from "../../components/Card";
+import { CardCoffeeVertical } from "../../components/CardCoffeeVertical";
 import { Header } from "../../components/Header";
 import { InformationsCoffee } from "../../components/InformationsCoffee";
 import { ContainerMenu, TitleMenu } from "./style";
@@ -15,7 +15,7 @@ export function Home() {
       <ContainerMenu>
         {coffee.map((item) => {
           return (
-            <Card
+            <CardCoffeeVertical
               key={item.id}
               title={item.title}
               description={item.description}

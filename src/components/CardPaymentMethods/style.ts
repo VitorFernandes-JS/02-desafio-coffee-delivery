@@ -5,7 +5,7 @@ export const DivPaymentMethods = styled.div`
   border-radius: 6px;
 
   padding: 2rem 2.5rem;
-  width: 60%;
+  width: 100%;
 
   div:first-child {
     display: flex;

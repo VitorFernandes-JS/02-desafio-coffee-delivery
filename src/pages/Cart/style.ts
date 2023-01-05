@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const CartContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   padding: 4rem 10rem;
 
   h2:first-child {
@@ -16,14 +16,18 @@ export const CartContainer = styled.div`
   }
 `;
 
+export const DivAdressAndMethodsPayment = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 export const BodyAddress = styled.div`
   background-color: ${({ theme }) => theme.card};
   border-radius: 6px;
+  width: 40rem;
 
   margin-bottom: 0.85rem;
   padding: 2.5rem;
-
-  width: 60%;
 
   div:first-child {
     display: flex;
@@ -31,12 +35,15 @@ export const BodyAddress = styled.div`
   }
 `;
 
-export const DivInformationsCoffeeInCart = styled.div`
-  display: flex;
-  flex-direction: column;
+export const TitleCoffees = styled.h2`
+  margin-bottom: 1rem;
 
-  width: 40%;
-`
+  font-family: "Baloo 2", cursive;
+  font-size: 1.25rem;
+  font-weight: 900;
+
+  color: ${({ theme }) => theme.subtitle};
+`;
 
 export const DivMapAndText = styled.div`
   margin-bottom: 2rem;
@@ -110,4 +117,20 @@ export const InputState = styled(InputBase)`
   text-align: center;
 `;
 
+export const DivTitleCoffeeAndInformationsCoffe = styled.div`
+  display: flex;
+  flex-direction: column;
 
+  margin-left: 2rem;
+`;
+
+export const DivInformationsCoffeeInCart = styled.div`
+  display: flex;
+  width: 100%;
+
+  background-color: ${({ theme }) => theme.card};
+  border-bottom-left-radius: 36px;
+  border-top-right-radius: 36px;
+
+  padding: 2rem;
+`;

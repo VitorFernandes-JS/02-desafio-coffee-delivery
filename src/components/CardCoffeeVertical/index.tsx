@@ -25,7 +25,7 @@ export interface CardProps {
   image: string;
 }
 
-export function Card({
+export function CardCoffeeVertical({
   title,
   description,
   category,
