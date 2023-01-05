@@ -1,5 +1,6 @@
 import { MapPinLine } from "phosphor-react";
 import { Header } from "../../components/Header";
+import { NavLink } from "react-router-dom";
 import {
   BodyAddress,
   CartContainer,
@@ -90,7 +91,11 @@ export function Cart() {
                 <strong>R$ 10,00</strong>
               </DivTotal>
 
-              <ButtonConfirmOrder onClick={() => {}}>CONFIRMAR PEDIDO</ButtonConfirmOrder>
+              <NavLink to="/finished-order" title="CONFIRMAR PEDIDO">
+                <ButtonConfirmOrder onClick={() => {}}>
+                  CONFIRMAR PEDIDO
+                </ButtonConfirmOrder>
+              </NavLink>
             </DivInformationsOrder>
           </DivInformationsCoffeeInCart>
         </DivTitleCoffeeAndInformationsCoffe>
