@@ -1,26 +1,40 @@
 import { Minus, Plus, Trash } from "phosphor-react";
 import Cafe from "../../assets/Americano.png";
+import {
+  ButtonLessAndmore,
+  ButtonRemoveToCart,
+  CardCoffeeHorizontalContainer,
+  DivTitleAndButtons,
+  Image,
+  TitleCoffee,
+  DivButtons,
+  DivTitleAndValue,
+  ValueCoffee,
+} from "./style";
 
 export function CardCoffeeHorizontal() {
   return (
-    <>
-      <DivImg>
-        <img src={Cafe} />
-      </DivImg>
+    <CardCoffeeHorizontalContainer>
       <div>
-        <h3>Expresso Tradicional</h3>
+        <Image src={Cafe} />
       </div>
-      <div>
-        <button>
-          <Minus size={14} />
-          <span>1</span>
-          <Plus size={14} />
-        </button>
-      </div>
-      <button>
-        <Trash size={14} />
-        Remover
-      </button>
-    </>
+      <DivTitleAndButtons>
+        <DivTitleAndValue>
+          <TitleCoffee>Expresso Tradicional</TitleCoffee>
+          <ValueCoffee>R$ 5,00</ValueCoffee>
+        </DivTitleAndValue>
+        <DivButtons>
+          <ButtonLessAndmore>
+            <Minus size={14} color="#8047F8" />
+            <span>1</span>
+            <Plus size={14} color="#8047F8" />
+          </ButtonLessAndmore>
+          <ButtonRemoveToCart>
+            <Trash size={14} color="#8047F8" />
+            <span>REMOVER</span>
+          </ButtonRemoveToCart>
+        </DivButtons>
+      </DivTitleAndButtons>
+    </CardCoffeeHorizontalContainer>
   );
 }
