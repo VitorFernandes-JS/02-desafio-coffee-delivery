@@ -10,6 +10,7 @@ import {
   DivButtons,
   DivTitleAndValue,
   ValueCoffee,
+  Line,
 } from "./style";
 
 export function CardCoffeeHorizontal() {
@@ -34,6 +35,7 @@ export function CardCoffeeHorizontal() {
             <span>REMOVER</span>
           </ButtonRemoveToCart>
         </DivButtons>
+      <Line />
       </DivTitleAndButtons>
     </CardCoffeeHorizontalContainer>
   );

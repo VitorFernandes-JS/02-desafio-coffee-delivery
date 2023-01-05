@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const CardCoffeeHorizontalContainer = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: center;
 
     width: 19rem
 `;
@@ -11,6 +10,8 @@ export const CardCoffeeHorizontalContainer = styled.div`
 export const Image = styled.img`
   width: 4rem;
   height: 4rem;
+
+  margin-top: -0.3rem;
 `;
 
 export const DivTitleAndValue = styled.div`
@@ -36,6 +37,7 @@ export const ValueCoffee = styled.span`
     font-family: "Roboto", sans-serif;
 
     margin-left: 3rem;
+
 `
 
 export const DivTitleAndButtons = styled.div`
@@ -86,3 +88,11 @@ export const ButtonRemoveToCart = styled.button`
     color: ${(props) => props.theme.subtitle};
   }
 `;
+
+export const Line = styled.hr`
+  width: 15rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+
+  border: 1px solid ${(props) => props.theme.button};
+`

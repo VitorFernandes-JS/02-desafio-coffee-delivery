@@ -15,6 +15,7 @@ import {
   TitleCoffees,
   DivAdressAndMethodsPayment,
   DivTitleCoffeeAndInformationsCoffe,
+  DivInformationsOrder,
 } from "./style";
 
 import { CardPaymentMethods } from "../../components/CardPaymentMethods";
@@ -66,20 +67,22 @@ export function Cart() {
 
           <DivInformationsCoffeeInCart>
             <CardCoffeeHorizontal />
-            {/* <span>
-                    <strong>R$ 10,00</strong>
-                  </span>
+            <CardCoffeeHorizontal />
+            <CardCoffeeHorizontal />
+            <DivInformationsOrder>
+              <strong>R$ 10,00</strong>
 
-                  <span>Total de itens:</span>
-                  <span>R$ 29,70</span>
+              <span>Total de itens:</span>
+              <span>R$ 29,70</span>
 
-                  <span>Frete:</span>
-                  <span>R$ 5,00</span>
+              <span>Frete:</span>
+              <span>R$ 5,00</span>
 
-                  <strong>Total:</strong>
-                  <strong>R$ 34,70</strong>
+              <strong>Total:</strong>
+              <strong>R$ 34,70</strong>
 
-                  <button onClick={() => {}}>CONFIRMAR PEDIDO</button> */}
+              <button onClick={() => {}}>CONFIRMAR PEDIDO</button>
+            </DivInformationsOrder>
           </DivInformationsCoffeeInCart>
         </DivTitleCoffeeAndInformationsCoffe>
       </CartContainer>

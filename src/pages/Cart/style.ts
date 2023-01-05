@@ -126,6 +126,7 @@ export const DivTitleCoffeeAndInformationsCoffe = styled.div`
 
 export const DivInformationsCoffeeInCart = styled.div`
   display: flex;
+  flex-direction: column;
   width: 100%;
 
   background-color: ${({ theme }) => theme.card};
@@ -134,3 +135,7 @@ export const DivInformationsCoffeeInCart = styled.div`
 
   padding: 2rem;
 `;
+
+export const DivInformationsOrder = styled.div`
+  display: flex;
+`
