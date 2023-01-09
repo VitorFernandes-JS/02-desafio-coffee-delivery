@@ -1,7 +1,19 @@
 import { Header } from "../../components/Header";
 import ManTakingCoffee from "../../assets/ConfirmOrderIllustration.png";
 import { CurrencyDollar, MapPin, Timer } from "phosphor-react";
-import { ContainerFinishedOrder, DivTexts, Subtitle, DivMapAndText } from "./style";
+import {
+  ContainerFinishedOrder,
+  DivTexts,
+  Subtitle,
+  DivMapAndText,
+  DivTimerAndText,
+  DivDollarAndText,
+  DivMap,
+  DivTimer,
+  DivDollar,
+  Border,
+  DivImg
+} from "./style";
 export function FinishedOrder() {
   return (
     <>
@@ -13,33 +25,47 @@ export function FinishedOrder() {
             Agora é só aguardar que logo o café chegará até você
           </Subtitle>
 
-          <div>
+          <Border>
             <DivMapAndText>
-              <div>
+              <DivMap>
                 <MapPin weight="fill" size={16} />
+              </DivMap>
+              <div>
+                <span>
+                  Entrega em Rua João Daniel Martinelli, 102
+                  <br />
+                  Farrapos - Porto Alegre, RS
+                </span>
               </div>
-              <span>Entrega em</span>
-              <strong> Rua João Daniel Martinelli, 102</strong>
-              <span> Farrapos - Porto Alegre, RS</span>
             </DivMapAndText>
 
-            <div>
-              <Timer weight="fill" size={16} />
-            </div>
-            <span>Previsão de entrega</span>
-            <strong> 20 min - 30 min</strong>
+            <DivTimerAndText>
+              <DivTimer>
+                <Timer weight="fill" size={16} />
+              </DivTimer>
+              <div>
+                <span>Previsão de entrega </span>
+                <br />
+                <strong>20 min - 30 min</strong>
+              </div>
+            </DivTimerAndText>
 
-            <div>
-              <CurrencyDollar weight="regular" size={16} />
-            </div>
-            <span>Pagamento na entrega</span>
-            <strong> Cartão de Crédito</strong>
-          </div>
+            <DivDollarAndText>
+              <DivDollar>
+                <CurrencyDollar weight="regular" size={16} />
+              </DivDollar>
+              <div>
+                <span>Pagamento na entrega</span>
+                <br />
+                <strong> Cartão de Crédito</strong>
+              </div>
+            </DivDollarAndText>
+          </Border>
         </DivTexts>
 
-        <div>
+        <DivImg>
           <img src={ManTakingCoffee} />
-        </div>
+        </DivImg>
       </ContainerFinishedOrder>
     </>
   );
