@@ -35,6 +35,29 @@ export const DivAdress = styled.div`
   }
 `;
 
+export const DivNumberItensInCart = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: ${(props) => props.theme.yellowDark};
+  color: ${(props) => props.theme.white};
+  border-radius: 50%;
+
+  width: 1rem;
+  height: 1rem;
+
+  position: absolute;
+
+  top: 1.75rem;
+  right: 9.75rem;
+
+  span {
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+`
+
 export const ButtonShoppingCart = styled.button`
   border: none;
   display: flex;

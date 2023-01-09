@@ -3,6 +3,7 @@ import {
   DivAdressAndShoppingCart,
   ButtonShoppingCart,
   HeaderContainer,
+  DivNumberItensInCart,
 } from "./style";
 import Logo from "../../assets/logo.png";
 import { MapPin, ShoppingCart } from "phosphor-react";
@@ -20,9 +21,12 @@ export function Header() {
           <a href="#">Porto Alegre, RS</a>
         </DivAdress>
 
-        <NavLink to="/cart" title="Carrinho de compras">
+        <NavLink to="/cart" title="Carrinho de compras" style={{ textDecoration: "none"}}>
           <ButtonShoppingCart>
-            <ShoppingCart size={20} weight="fill" />
+            <ShoppingCart size={20} weight="fill"/>
+            <DivNumberItensInCart>
+              <span>3</span>
+            </DivNumberItensInCart>
           </ButtonShoppingCart>
         </NavLink>
       </DivAdressAndShoppingCart>
