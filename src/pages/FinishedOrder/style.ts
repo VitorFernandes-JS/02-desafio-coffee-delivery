@@ -7,15 +7,13 @@ export const ContainerFinishedOrder = styled.div`
   padding: 4rem 10rem;
 `;
 
-
 export const DivTexts = styled.div`
   display: flex;
   flex-direction: column;
 
   margin-right: 2rem;
 
-  h1 { 
-
+  h1 {
     font-family: "Baloo 2", cursive;
     font-size: 2rem;
 
@@ -33,17 +31,28 @@ export const Subtitle = styled.span`
   margin-bottom: 2.25rem;
 `;
 
-export const Border = styled.div`
-  background-color: none;
-  border: 1px solid linear-gradient(#FFC700 50%, #FFC700 100%);
- 
+export const DivBody = styled.div`
+  background-color: ${(props) => props.theme.background};
+  padding: 2.5rem;
 
   border-bottom-left-radius: 36px;
   border-top-right-radius: 36px;
   border-top-left-radius: 6px;
   border-bottom-right-radius: 6px;
+`;
 
-  padding: 2.50rem;
+export const Border = styled.div`
+  padding: 0.10rem;
+  position: relative;
+  background: linear-gradient(
+    90deg,
+    ${(props) => props.theme.yellow} 0%,
+    ${(props) => props.theme.purple} 100%
+  );
+  border-bottom-left-radius: 36px;
+  border-top-right-radius: 36px;
+  border-top-left-radius: 6px;
+  border-bottom-right-radius: 6px;
 `;
 
 export const DivMapAndText = styled.div`
@@ -133,4 +142,4 @@ export const DivDollar = styled.div`
 export const DivImg = styled.div`
   margin-top: 3.75rem;
   margin-left: 4rem;
-`
+`;

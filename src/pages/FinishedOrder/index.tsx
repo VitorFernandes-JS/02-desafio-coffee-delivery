@@ -12,7 +12,8 @@ import {
   DivTimer,
   DivDollar,
   Border,
-  DivImg
+  DivBody,
+  DivImg,
 } from "./style";
 export function FinishedOrder() {
   return (
@@ -26,40 +27,42 @@ export function FinishedOrder() {
           </Subtitle>
 
           <Border>
-            <DivMapAndText>
-              <DivMap>
-                <MapPin weight="fill" size={16} />
-              </DivMap>
-              <div>
-                <span>
-                  Entrega em Rua João Daniel Martinelli, 102
+            <DivBody>
+              <DivMapAndText>
+                <DivMap>
+                  <MapPin weight="fill" size={16} />
+                </DivMap>
+                <div>
+                  <span>
+                    Entrega em Rua João Daniel Martinelli, 102
+                    <br />
+                    Farrapos - Porto Alegre, RS
+                  </span>
+                </div>
+              </DivMapAndText>
+
+              <DivTimerAndText>
+                <DivTimer>
+                  <Timer weight="fill" size={16} />
+                </DivTimer>
+                <div>
+                  <span>Previsão de entrega </span>
                   <br />
-                  Farrapos - Porto Alegre, RS
-                </span>
-              </div>
-            </DivMapAndText>
+                  <strong>20 min - 30 min</strong>
+                </div>
+              </DivTimerAndText>
 
-            <DivTimerAndText>
-              <DivTimer>
-                <Timer weight="fill" size={16} />
-              </DivTimer>
-              <div>
-                <span>Previsão de entrega </span>
-                <br />
-                <strong>20 min - 30 min</strong>
-              </div>
-            </DivTimerAndText>
-
-            <DivDollarAndText>
-              <DivDollar>
-                <CurrencyDollar weight="regular" size={16} />
-              </DivDollar>
-              <div>
-                <span>Pagamento na entrega</span>
-                <br />
-                <strong> Cartão de Crédito</strong>
-              </div>
-            </DivDollarAndText>
+              <DivDollarAndText>
+                <DivDollar>
+                  <CurrencyDollar weight="regular" size={16} />
+                </DivDollar>
+                <div>
+                  <span>Pagamento na entrega</span>
+                  <br />
+                  <strong> Cartão de Crédito</strong>
+                </div>
+              </DivDollarAndText>
+            </DivBody>
           </Border>
         </DivTexts>
 
