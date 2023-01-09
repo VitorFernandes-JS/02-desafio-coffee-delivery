@@ -1,11 +1,11 @@
 import { CardCoffeeVertical } from "../../components/CardCoffeeVertical";
 import { Header } from "../../components/Header";
 import { InformationsCoffee } from "../../components/InformationsCoffee";
+import { useCoffeInformationsContext } from "../../contexts/CoffeeInformationsContext";
 import { ContainerMenu, TitleMenu } from "./style";
 
-import { coffee } from "../../utils/Coffee";
-
 export function Home() {
+  const { coffees } = useCoffeInformationsContext();
   return (
     <div>
       <Header />
@@ -13,9 +13,10 @@ export function Home() {
 
       <TitleMenu>Nossos cafés</TitleMenu>
       <ContainerMenu>
-        {coffee.map((item) => {
+        {coffees.map((item) => {
           return (
             <CardCoffeeVertical
+              id={item.id}
               key={item.id}
               title={item.title}
               description={item.description}

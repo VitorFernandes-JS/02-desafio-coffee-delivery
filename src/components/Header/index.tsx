@@ -12,7 +12,7 @@ import { CoffeeInformationsContext } from "../../contexts/CoffeeInformationsCont
 import { useContext } from "react";
 
 export function Header() {
-  const { quantityCoffee } = useContext(CoffeeInformationsContext);
+  const { quantityToCart } = useContext(CoffeeInformationsContext);
 
   return (
     <HeaderContainer>
@@ -29,9 +29,9 @@ export function Header() {
           <ButtonShoppingCart>
             <ShoppingCart size={20} weight="fill"/>
             {
-              quantityCoffee > 0 && (
+              quantityToCart > 0 && (
                 <DivNumberItensInCart>
-                <span>{quantityCoffee}</span>
+                <span>{quantityToCart}</span>
               </DivNumberItensInCart>
               )
             }

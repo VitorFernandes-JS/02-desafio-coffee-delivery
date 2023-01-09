@@ -1,12 +1,13 @@
 import { createContext, ReactNode, useContext, useState } from "react";
-import { coffee } from "../../src/utils/Coffee";
+import { coffeesUtils } from "../../src/utils/Coffee";
 import { CoffeeProps } from "../../src/utils/Coffee";
 
 interface CoffeeInformationsContextData {
-  handleSendCoffeeToCart: () => void;
-  handleAddCoffeeInCart: () => void;
-  handleRemoveCoffeeInCart: () => void;
-  quantityCoffee: number;
+  handleSendCoffeeToCart: (id: string) => void;
+  handleAddCoffeeInCart: (id: string) => void;
+  handleRemoveCoffeeInCart: (id: string) => void;
+  coffees: CoffeeProps[];
+  quantityToCart: number;
 }
 
 export const CoffeeInformationsContext = createContext(
@@ -20,19 +21,50 @@ interface CoffeeContextProviderProps {
 export function CoffeeInformationsContextProvider({
   children,
 }: CoffeeContextProviderProps) {
-  const [quantityCoffee, setQuantityCoffee] = useState(0);
-  const [coffees, setCoffees] = useState([] as CoffeeProps[]);
+  const [coffees, setCoffees] = useState<CoffeeProps[]>(coffeesUtils);
+  const [quantityToCart, setQuantityToCart] = useState(0);
 
-  function handleSendCoffeeToCart() {
-    console.log("teste");
+  function handleSendCoffeeToCart(id: string) {
+    setQuantityToCart(
+      coffees.map((item) => {
+        if (item.id === id) {
+          return {
+            quantityToCart: item.quantity,
+          };
+        }
+        return item;
+      })
+    );
   }
 
-  function handleAddCoffeeInCart() {
-    setQuantityCoffee((state) => state + 1);
+  console.log(quantityToCart)
+
+  function handleAddCoffeeInCart(id: string) {
+    setCoffees((state) =>
+      state.map((item) => {
+        if (item.id === id) {
+          return {
+            ...item,
+            quantity: item.quantity + 1,
+          };
+        }
+        return item;
+      })
+    );
   }
 
-  function handleRemoveCoffeeInCart() {
-    setQuantityCoffee((state) => state - 1);
+  function handleRemoveCoffeeInCart(id: string) {
+    setCoffees((state) =>
+      state.map((item) => {
+        if (item.id === id) {
+          return {
+            ...item,
+            quantity: item.quantity - 1,
+          };
+        }
+        return item;
+      })
+    );
   }
 
   return (
@@ -41,7 +73,8 @@ export function CoffeeInformationsContextProvider({
         handleSendCoffeeToCart,
         handleAddCoffeeInCart,
         handleRemoveCoffeeInCart,
-        quantityCoffee,
+        coffees,
+        quantityToCart,
       }}
     >
       {children}
@@ -53,5 +86,3 @@ export function useCoffeInformationsContext() {
   const context = useContext(CoffeeInformationsContext);
   return context;
 }
-
-

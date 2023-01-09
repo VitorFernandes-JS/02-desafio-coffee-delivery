@@ -21,7 +21,7 @@ export interface CoffeeProps extends CardProps {
   id: string;
 }
 
-export const coffee = [
+export const coffeesUtils = [
   {
     id: uuidv4(),
     image: Expresso,

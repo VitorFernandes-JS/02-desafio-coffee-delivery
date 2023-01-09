@@ -17,6 +17,7 @@ import { Minus, Plus, ShoppingCart } from "phosphor-react";
 import { useCoffeInformationsContext } from "../../contexts/CoffeeInformationsContext";
 
 export interface CardProps {
+  id: string;
   title: string;
   description: string;
   category: string;
@@ -28,6 +29,7 @@ export interface CardProps {
 }
 
 export function CardCoffeeVertical({
+  id,
   title,
   description,
   category,
@@ -41,7 +43,6 @@ export function CardCoffeeVertical({
     handleSendCoffeeToCart,
     handleAddCoffeeInCart,
     handleRemoveCoffeeInCart,
-    quantityCoffee,
   } = useCoffeInformationsContext();
 
 
@@ -86,7 +87,7 @@ export function CardCoffeeVertical({
               weight="bold"
               size={14}
               onClick={() => {
-                handleRemoveCoffeeInCart();
+                handleRemoveCoffeeInCart(id);
               }}
             />
           </ButtonRemove>
@@ -96,7 +97,7 @@ export function CardCoffeeVertical({
               weight="bold"
               size={14}
               onClick={() => {
-                handleAddCoffeeInCart();
+                handleAddCoffeeInCart(id);
               }}
             />
           </ButtonAdd>
@@ -108,7 +109,7 @@ export function CardCoffeeVertical({
             size={20}
             color={"#F3F2F2"}
             onClick={() => {
-              handleSendCoffeeToCart();
+              handleSendCoffeeToCart(id);
             }}
           />
         </ButtonToCart>
