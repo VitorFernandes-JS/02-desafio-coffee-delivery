@@ -8,8 +8,12 @@ import {
 import Logo from "../../assets/logo.png";
 import { MapPin, ShoppingCart } from "phosphor-react";
 import { NavLink } from "react-router-dom";
+import { CoffeeInformationsContext } from "../../contexts/CoffeeInformationsContext";
+import { useContext } from "react";
 
 export function Header() {
+  const { quantityCoffee } = useContext(CoffeeInformationsContext);
+
   return (
     <HeaderContainer>
       <NavLink to="/" title="Home">
@@ -24,9 +28,13 @@ export function Header() {
         <NavLink to="/cart" title="Carrinho de compras" style={{ textDecoration: "none"}}>
           <ButtonShoppingCart>
             <ShoppingCart size={20} weight="fill"/>
-            <DivNumberItensInCart>
-              <span>3</span>
-            </DivNumberItensInCart>
+            {
+              quantityCoffee > 0 && (
+                <DivNumberItensInCart>
+                <span>{quantityCoffee}</span>
+              </DivNumberItensInCart>
+              )
+            }
           </ButtonShoppingCart>
         </NavLink>
       </DivAdressAndShoppingCart>

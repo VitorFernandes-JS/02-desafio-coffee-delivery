@@ -3,7 +3,7 @@ import { Header } from "../../components/Header";
 import { InformationsCoffee } from "../../components/InformationsCoffee";
 import { ContainerMenu, TitleMenu } from "./style";
 
-import { coffee } from "../../utils/coffee";
+import { coffee } from "../../utils/Coffee";
 
 export function Home() {
   return (
@@ -22,6 +22,7 @@ export function Home() {
               secondeCategory={item.secondeCategory}
               thirdCategory={item.thirdCategory}
               category={item.category}
+              quantity={item.quantity}
               value={item.value}
               image={item.image}
             />

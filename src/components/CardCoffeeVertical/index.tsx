@@ -14,6 +14,7 @@ import {
 } from "./style";
 
 import { Minus, Plus, ShoppingCart } from "phosphor-react";
+import { useCoffeInformationsContext } from "../../contexts/CoffeeInformationsContext";
 
 export interface CardProps {
   title: string;
@@ -21,6 +22,7 @@ export interface CardProps {
   category: string;
   secondeCategory?: string;
   thirdCategory?: string;
+  quantity: number;
   value: number;
   image: string;
 }
@@ -33,7 +35,16 @@ export function CardCoffeeVertical({
   thirdCategory,
   value,
   image,
+  quantity,
 }: CardProps) {
+  const {
+    handleSendCoffeeToCart,
+    handleAddCoffeeInCart,
+    handleRemoveCoffeeInCart,
+    quantityCoffee,
+  } = useCoffeInformationsContext();
+
+
   return (
     <DivCard>
       <Image src={image} />
@@ -71,16 +82,35 @@ export function CardCoffeeVertical({
 
         <DivButtonsRemoveAndAdd>
           <ButtonRemove>
-            <Minus weight="bold" size={14} />
+            <Minus
+              weight="bold"
+              size={14}
+              onClick={() => {
+                handleRemoveCoffeeInCart();
+              }}
+            />
           </ButtonRemove>
-          <span>1</span>
+          <span>{quantity}</span>
           <ButtonAdd>
-            <Plus weight="bold" size={14} />
+            <Plus
+              weight="bold"
+              size={14}
+              onClick={() => {
+                handleAddCoffeeInCart();
+              }}
+            />
           </ButtonAdd>
         </DivButtonsRemoveAndAdd>
 
         <ButtonToCart>
-          <ShoppingCart weight="fill" size={20} color={"#F3F2F2"} />
+          <ShoppingCart
+            weight="fill"
+            size={20}
+            color={"#F3F2F2"}
+            onClick={() => {
+              handleSendCoffeeToCart();
+            }}
+          />
         </ButtonToCart>
       </DivValueAndButtons>
     </DivCard>
