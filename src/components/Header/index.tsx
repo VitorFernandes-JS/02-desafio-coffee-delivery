@@ -29,9 +29,9 @@ export function Header() {
           <ButtonShoppingCart>
             <ShoppingCart size={20} weight="fill"/>
             {
-              quantityToCart > 0 && (
+              quantityToCart.length === 0 && (
                 <DivNumberItensInCart>
-                <span>{quantityToCart}</span>
+                <span>{}</span>
               </DivNumberItensInCart>
               )
             }

@@ -15,23 +15,40 @@ import {
   ButtonAdd,
 } from "./style";
 
-export function CardCoffeeHorizontal() {
+export interface CardCoffeeHorizontalProps {
+  id: string;
+  title: string;
+  value: number;
+  image: string;
+  quantity:number
+}
+
+export function CardCoffeeHorizontal({
+  id,
+  title,
+  value,
+  image,
+  quantity,
+}: CardCoffeeHorizontalProps) {
   return (
     <CardCoffeeHorizontalContainer>
       <div>
-        <Image src={Cafe} />
+        <Image src={image} />
       </div>
       <DivTitleAndButtons>
         <DivTitleAndValue>
-          <TitleCoffee>Expresso Tradicional</TitleCoffee>
-          <ValueCoffee>R$ 5,00</ValueCoffee>
+          <TitleCoffee>{title}</TitleCoffee>
+          <ValueCoffee>{value.toLocaleString(
+            "pt-br",
+            { style: "currency", currency: "BRL" }
+          )}</ValueCoffee>
         </DivTitleAndValue>
         <DivButtons>
           <ButtonLessAndmore>
             <ButtonRemove>
               <Minus size={14} color="#8047F8" />
             </ButtonRemove>
-            <span>1</span>
+            <span>{quantity}</span>
             <ButtonAdd>
               <Plus size={14} color="#8047F8" />
             </ButtonAdd>

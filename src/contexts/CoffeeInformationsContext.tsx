@@ -1,13 +1,14 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 import { coffeesUtils } from "../../src/utils/Coffee";
 import { CoffeeProps } from "../../src/utils/Coffee";
+import { CardCoffeeHorizontalProps } from "../components/CardCoffeeHorizontal";
 
 interface CoffeeInformationsContextData {
   handleSendCoffeeToCart: (id: string) => void;
   handleAddCoffeeInCart: (id: string) => void;
   handleRemoveCoffeeInCart: (id: string) => void;
   coffees: CoffeeProps[];
-  quantityToCart: number;
+  quantityToCart: CardCoffeeHorizontalProps[];
 }
 
 export const CoffeeInformationsContext = createContext(
@@ -22,13 +23,23 @@ export function CoffeeInformationsContextProvider({
   children,
 }: CoffeeContextProviderProps) {
   const [coffees, setCoffees] = useState<CoffeeProps[]>(coffeesUtils);
-  const [quantityToCart, setQuantityToCart] = useState(0);
+  const [quantityToCart, setQuantityToCart] = useState<
+    CardCoffeeHorizontalProps[]
+  >([]);
 
   function handleSendCoffeeToCart(id: string) {
     setQuantityToCart(
       coffees
-        .map((item) => (item.id === id ? item.quantity : item.quantity))
-        .reduce((a, b) => a + b)
+        .filter((item) => item.id === id)
+        .map((item) => {
+          return {
+            id: item.id,
+            title: item.title,
+            image: item.image,
+            value: item.value,
+            quantity: item.quantity,
+          };
+        })
     );
   }
 

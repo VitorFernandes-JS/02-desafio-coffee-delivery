@@ -16,7 +16,7 @@ import {
 import { Minus, Plus, ShoppingCart } from "phosphor-react";
 import { useCoffeInformationsContext } from "../../contexts/CoffeeInformationsContext";
 
-export interface CardProps {
+export interface CardCoffeeVerticalProps {
   id: string;
   title: string;
   description: string;
@@ -38,13 +38,12 @@ export function CardCoffeeVertical({
   value,
   image,
   quantity,
-}: CardProps) {
+}: CardCoffeeVerticalProps) {
   const {
     handleSendCoffeeToCart,
     handleAddCoffeeInCart,
     handleRemoveCoffeeInCart,
   } = useCoffeInformationsContext();
-
 
   return (
     <DivCard>

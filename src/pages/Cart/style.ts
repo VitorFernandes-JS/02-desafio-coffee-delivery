@@ -134,6 +134,26 @@ export const DivInformationsCoffeeInCart = styled.div`
   border-top-right-radius: 36px;
 
   padding: 2rem;
+
+  div:first-child {
+    display: flex;
+    flex-direction: row;
+
+  }
+`;
+
+export const TextNoCoffee = styled.p`
+  display: flex;
+  
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  font-weight: 900;
+
+  color: ${({ theme }) => theme.subtitle};
+
+  margin-left: 3.5rem;
+  margin-bottom: 2rem;
+
 `;
 
 export const DivInformationsOrder = styled.div`

@@ -21,12 +21,15 @@ import {
   DivFreight,
   DivTotal,
   ButtonConfirmOrder,
+  TextNoCoffee,
 } from "./style";
 
 import { CardPaymentMethods } from "../../components/CardPaymentMethods";
 import { CardCoffeeHorizontal } from "../../components/CardCoffeeHorizontal";
+import { useCoffeInformationsContext } from "../../contexts/CoffeeInformationsContext";
 
 export function Cart() {
+  const { quantityToCart } = useCoffeInformationsContext();
   return (
     <>
       <Header />
@@ -71,9 +74,23 @@ export function Cart() {
           <TitleCoffees>Cafés selecionados</TitleCoffees>
 
           <DivInformationsCoffeeInCart>
-            <CardCoffeeHorizontal />
-            <CardCoffeeHorizontal />
-            <CardCoffeeHorizontal />
+            {quantityToCart.length === 0 && (
+              <div>
+                <TextNoCoffee>Nenhum café selecionado.</TextNoCoffee>
+              </div>
+            )}
+            {quantityToCart.map((item) => {
+              return (
+                <CardCoffeeHorizontal
+                  id={item.id}
+                  key={item.id}
+                  title={item.title}
+                  quantity={item.quantity}
+                  value={item.value}
+                  image={item.image}
+                />
+              );
+            })}
 
             <DivInformationsOrder>
               <DivTotalItems>
