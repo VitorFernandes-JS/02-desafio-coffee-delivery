@@ -33,7 +33,6 @@ export function CoffeeInformationsContextProvider({
         .filter((item) => item.id === id)
         .map((item) => {
           return {
-            ...quantityToCart,
             id: item.id,
             title: item.title,
             value: item.value,
