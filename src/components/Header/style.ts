@@ -53,7 +53,7 @@ export const DivNumberItensInCart = styled.div`
   right: 9.75rem;
 
   span {
-    font-size: 0.75rem;
+    font-size: 0.55rem;
     font-weight: 700;
   }
 `

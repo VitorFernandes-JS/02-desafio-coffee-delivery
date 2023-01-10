@@ -26,18 +26,11 @@ export function CoffeeInformationsContextProvider({
 
   function handleSendCoffeeToCart(id: string) {
     setQuantityToCart(
-      coffees.map((item) => {
-        if (item.id === id) {
-          return {
-            quantityToCart: item.quantity,
-          };
-        }
-        return item;
-      })
+      coffees
+        .map((item) => (item.id === id ? item.quantity : item.quantity))
+        .reduce((a, b) => a + b)
     );
   }
-
-  console.log(quantityToCart)
 
   function handleAddCoffeeInCart(id: string) {
     setCoffees((state) =>
