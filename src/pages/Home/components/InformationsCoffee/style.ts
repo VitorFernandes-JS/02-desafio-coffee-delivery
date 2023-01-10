@@ -48,7 +48,7 @@ export const InformationsItens = styled.div`
     margin-top: -15rem;
 
     &:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
     transition: 0.2s;
   }
 }

@@ -1,6 +1,6 @@
 import { CardCoffeeVertical } from "../../components/CardCoffeeVertical";
 import { Header } from "../../components/Header";
-import { InformationsCoffee } from "../../components/InformationsCoffee";
+import { InformationsCoffee } from "./components/InformationsCoffee";
 import { useCoffeInformationsContext } from "../../contexts/CoffeeInformationsContext";
 import { ContainerMenu, TitleMenu } from "./style";
 

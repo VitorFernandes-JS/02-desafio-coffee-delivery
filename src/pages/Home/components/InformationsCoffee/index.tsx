@@ -10,7 +10,7 @@ import {
   Subtitle,
   DivTeste,
 } from "./style";
-import CoffeeMarketing from "../../assets/CoffeeMarketing.png";
+import CoffeeMarketing from "../../../../assets/CoffeeMarketing.png";
 
 import { ShoppingCart, Timer, Package, Coffee } from "phosphor-react";
 

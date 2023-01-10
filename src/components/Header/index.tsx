@@ -12,7 +12,9 @@ import { CoffeeInformationsContext } from "../../contexts/CoffeeInformationsCont
 import { useContext } from "react";
 
 export function Header() {
-  const { quantityToCart } = useContext(CoffeeInformationsContext);
+  const { coffees } = useContext(CoffeeInformationsContext);
+
+  const numberOfCoffeesSelectedForTheCart = coffees.filter((item) => item.quantity)
 
   return (
     <HeaderContainer>
@@ -20,21 +22,32 @@ export function Header() {
         <img src={Logo} />
       </NavLink>
       <DivAdressAndShoppingCart>
+        <NavLink to="/cart" title="Endereço"
+          style={{ textDecoration: "none" }}>
         <DivAdress>
           <MapPin size={22} weight="fill" />
           <a href="#">Porto Alegre, RS</a>
         </DivAdress>
+        </NavLink>
 
-        <NavLink to="/cart" title="Carrinho de compras" style={{ textDecoration: "none"}}>
+        <NavLink
+          to="/cart"
+          title="Carrinho de compras"
+          style={{ textDecoration: "none" }}
+        >
           <ButtonShoppingCart>
-            <ShoppingCart size={20} weight="fill"/>
-            {
-              quantityToCart.length === 0 && (
-                <DivNumberItensInCart>
-                <span>{}</span>
+            <ShoppingCart size={20} weight="fill" />
+            {numberOfCoffeesSelectedForTheCart.length > 0 && (
+              <DivNumberItensInCart>
+                <span>
+                  {
+                    numberOfCoffeesSelectedForTheCart.reduce((acc, coffee) => {
+                      return acc + coffee.quantity;
+                    }, 0)
+                  }
+                </span>
               </DivNumberItensInCart>
-              )
-            }
+            )}
           </ButtonShoppingCart>
         </NavLink>
       </DivAdressAndShoppingCart>
