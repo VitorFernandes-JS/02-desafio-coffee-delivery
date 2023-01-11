@@ -56,7 +56,7 @@ export const DivNumberItensInCart = styled.div`
     font-size: 0.55rem;
     font-weight: 700;
   }
-`
+`;
 
 export const ButtonShoppingCart = styled.button`
   border: none;
@@ -64,6 +64,23 @@ export const ButtonShoppingCart = styled.button`
   align-items: center;
   background-color: ${(props) => props.theme.yellowLight};
   color: ${(props) => props.theme.yellowDark};
+
+  border-radius: 6px;
+
+  padding: 0.5rem 0.5rem;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.85;
+  }
+`;
+
+export const ButtonMoon = styled.button`
+  border: none;
+  display: flex;
+  align-items: center;
+  background-color: ${(props) => props.theme.hover};
+  color: ${(props) => props.theme.title};
 
   border-radius: 6px;
 

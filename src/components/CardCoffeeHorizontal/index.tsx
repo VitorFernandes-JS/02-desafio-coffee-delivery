@@ -28,13 +28,13 @@ export function CardCoffeeHorizontal({
   title,
   value,
   image,
+  quantity,
 }: CardCoffeeHorizontalProps) {
 
   const {
     handleAddCoffeeInCart,
     handleRemoveCoffeeInCart,
     handleRemoveTotalCoffeeInCart,
-    quantityCoffee,
   } = useCoffeInformationsContext();
 
   return (
@@ -63,7 +63,7 @@ export function CardCoffeeHorizontal({
             >
               <Minus size={14} color="#8047F8" />
             </ButtonRemove>
-            <span>{quantityCoffee}</span>
+            <span>{quantity}</span>
             <ButtonAdd
               type="button"
               onClick={() => {
