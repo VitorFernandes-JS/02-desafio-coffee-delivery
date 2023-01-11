@@ -63,8 +63,7 @@ export function Cart() {
 
   const { handleSubmit, watch, reset } = newAddrressForm;
 
-  function handleForm(data: AddressFormData) {
-    console.log({ data });
+  function handleForm() {
     reset();
   }
 
@@ -126,14 +125,14 @@ export function Cart() {
                 </DivTotal>
 
                 <NavLink to={"/finished-order"}>
-                <ButtonConfirmOrder
-                  type="submit"
-                  disabled={
-                    !street || !district || !city || !uf || !cep || !number
-                  }
-                >
-                  CONFIRMAR PEDIDO
-                </ButtonConfirmOrder>
+                  <ButtonConfirmOrder
+                    type="submit"
+                    disabled={
+                      !street || !district || !city || !uf || !cep || !number
+                    }
+                  >
+                    CONFIRMAR PEDIDO
+                  </ButtonConfirmOrder>
                 </NavLink>
               </DivInformationsOrder>
             </DivInformationsCoffeeInCart>

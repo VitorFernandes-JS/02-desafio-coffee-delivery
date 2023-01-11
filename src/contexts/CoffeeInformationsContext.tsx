@@ -105,4 +105,4 @@ export function CoffeeInformationsContextProvider({
 export function useCoffeInformationsContext() {
   const context = useContext(CoffeeInformationsContext);
   return context;
-}
+} // isso aqui serve para não termos que ficar sempre importando o useContext em cada tela, quando formos usar o contexto.
