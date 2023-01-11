@@ -12,9 +12,13 @@ import { CoffeeInformationsContext } from "../../contexts/CoffeeInformationsCont
 import { useContext } from "react";
 
 export function Header() {
-  const { coffees } = useContext(CoffeeInformationsContext);
+  const { coffees, addToCart } = useContext(CoffeeInformationsContext);
 
   const numberOfCoffeesSelectedForTheCart = coffees.filter((item) => item.quantity)
+
+  function teste() {
+    console.log("teste")
+  }
 
   return (
     <HeaderContainer>
@@ -37,7 +41,7 @@ export function Header() {
         >
           <ButtonShoppingCart>
             <ShoppingCart size={20} weight="fill" />
-            {numberOfCoffeesSelectedForTheCart.length > 0 && (
+            {(numberOfCoffeesSelectedForTheCart.length > 0 && addToCart === true)  && (
               <DivNumberItensInCart>
                 <span>
                   {

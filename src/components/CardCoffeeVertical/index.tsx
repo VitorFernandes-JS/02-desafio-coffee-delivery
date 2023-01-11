@@ -102,7 +102,7 @@ export function CardCoffeeVertical({
           </ButtonAdd>
         </DivButtonsRemoveAndAdd>
 
-        <ButtonToCart>
+        <ButtonToCart disabled={quantity === 0}>
           <ShoppingCart
             weight="fill"
             size={20}
