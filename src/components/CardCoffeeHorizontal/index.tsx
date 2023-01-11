@@ -1,5 +1,4 @@
 import { Minus, Plus, Trash } from "phosphor-react";
-import Cafe from "../../assets/Americano.png";
 import { useCoffeInformationsContext } from "../../contexts/CoffeeInformationsContext";
 import {
   ButtonLessAndmore,
@@ -29,12 +28,13 @@ export function CardCoffeeHorizontal({
   title,
   value,
   image,
-  quantity,
 }: CardCoffeeHorizontalProps) {
 
   const {
     handleAddCoffeeInCart,
     handleRemoveCoffeeInCart,
+    handleRemoveTotalCoffeeInCart,
+    quantityCoffee,
   } = useCoffeInformationsContext();
 
   return (
@@ -59,24 +59,22 @@ export function CardCoffeeHorizontal({
               type="button"
               onClick={() => {
                 handleRemoveCoffeeInCart(id);
-                console.log(quantity);
               }}
             >
               <Minus size={14} color="#8047F8" />
             </ButtonRemove>
-            <span>{quantity}</span>
+            <span>{quantityCoffee}</span>
             <ButtonAdd
               type="button"
               onClick={() => {
                 handleAddCoffeeInCart(id);
-                console.log("add");
               }}
             >
               <Plus size={14} color="#8047F8" />
             </ButtonAdd>
           </ButtonLessAndmore>
 
-          <ButtonRemoveToCart type="button">
+          <ButtonRemoveToCart type="button" onClick={() => {handleRemoveTotalCoffeeInCart(id)}}>
             <Trash size={14} color="#8047F8" />
             <span>REMOVER</span>
           </ButtonRemoveToCart>

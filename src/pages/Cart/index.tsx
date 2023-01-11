@@ -48,7 +48,7 @@ interface AddressFormData {
 }
 
 export function Cart() {
-  const { quantityToCart } = useCoffeInformationsContext();
+  const { quantityToCart, quantityCoffee } = useCoffeInformationsContext();
 
   const newAddrressForm = useForm<AddressFormData>({
     resolver: zodResolver(newAddressFormValidationSchema),
@@ -90,7 +90,7 @@ export function Cart() {
             <TitleCoffees>Cafés selecionados</TitleCoffees>
 
             <DivInformationsCoffeeInCart>
-              {quantityToCart.length === 0 && (
+              {(quantityToCart.length === 0 || quantityCoffee.length === 0) && (
                 <div>
                   <TextNoCoffee>Nenhum café selecionado.</TextNoCoffee>
                 </div>

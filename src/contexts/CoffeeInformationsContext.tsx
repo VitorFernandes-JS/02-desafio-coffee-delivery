@@ -8,11 +8,13 @@ interface CoffeeInformationsContextData {
   handleAddCoffeeInCart: (id: string) => void;
   handleRemoveCoffeeInCart: (id: string) => void;
   handleClickInButton: (titleButton: string) => void;
+  handleRemoveTotalCoffeeInCart: (id: string) => void;
   clickInButton: number;
   coffees: CoffeeProps[];
   quantityToCart: CardCoffeeHorizontalProps[];
   addToCart: boolean;
   visible: boolean;
+  quantityCoffee: number[];
 }
 
 export const CoffeeInformationsContext = createContext(
@@ -33,27 +35,30 @@ export function CoffeeInformationsContextProvider({
   const [clickInButton, setClickInButton] = useState(0);
   const [addToCart, setAddToCart] = useState(false);
   const [visible, setVisible] = useState(false);
-  
+
+  const quantityCoffee = coffees.filter((item) => item.id === item.id).map((item) => item.quantity)
+
   function handleSendCoffeeToCart(id: string) {
     setQuantityToCart(
       coffees
-      .filter((item) => item.id === id)
-      .map((item) => {
-        return {
-          id: item.id,
-          title: item.title,
-          value: item.value,
-          quantity: item.quantity,
-          image: item.image,
-        };
-      })
-      );
-      setVisible(true);
-      setAddToCart(true);
-    }
-    
-    function handleAddCoffeeInCart(id: string) {
-      setCoffees((state) =>
+        .filter((item) => item.id === id)
+        .map((item) => {
+          return {
+            id: item.id,
+            title: item.title,
+            value: item.value,
+            quantity: item.quantity,
+            image: item.image,
+          };
+        })
+        .concat(...quantityToCart)
+    );
+    setVisible(true);
+    setAddToCart(true);
+  }
+
+  function handleAddCoffeeInCart(id: string) {
+    setCoffees((state) =>
       state.map((item) => {
         if (item.id === id) {
           return {
@@ -63,11 +68,11 @@ export function CoffeeInformationsContextProvider({
         }
         return item;
       })
-      );
-    }
-    
-    function handleRemoveCoffeeInCart(id: string) {
-      setCoffees((state) =>
+    );
+  }
+
+  function handleRemoveCoffeeInCart(id: string) {
+    setCoffees((state) =>
       state.map((item) => {
         if (item.id === id) {
           return {
@@ -77,32 +82,48 @@ export function CoffeeInformationsContextProvider({
         }
         return item;
       })
-      );
+    );
+  }
+
+  function handleClickInButton(titleButton: string) {
+    if (titleButton === "CARTAO DE CREDITO") {
+      return setClickInButton((state) => (state = 0));
     }
-    
-    function handleClickInButton(titleButton: string) {
-      if (titleButton === "CARTAO DE CREDITO") {
-        return setClickInButton((state) => (state = 0));
-      }
-      if (titleButton === "CARTAO DE DEBITO") {
-        return setClickInButton((state) => (state = 1));
-      } else {
-        return setClickInButton((state) => (state = 2));
-      }
+    if (titleButton === "CARTAO DE DEBITO") {
+      return setClickInButton((state) => (state = 1));
+    } else {
+      return setClickInButton((state) => (state = 2));
     }
+  }
+
+  function handleRemoveTotalCoffeeInCart(id: string) {
+    setCoffees((state) =>
+      state.map((item) => {
+        if (item.id === id) {
+          return {
+            ...item,
+            quantity: item.quantity - item.quantity,
+          };
+        }
+        return item;
+      })
+    );
+  }
 
   return (
     <CoffeeInformationsContext.Provider
       value={{
         handleClickInButton,
-        clickInButton,
         handleSendCoffeeToCart,
         handleAddCoffeeInCart,
         handleRemoveCoffeeInCart,
+        handleRemoveTotalCoffeeInCart,
+        clickInButton,
         coffees,
         quantityToCart,
         addToCart,
         visible,
+        quantityCoffee,
       }}
     >
       {children}
