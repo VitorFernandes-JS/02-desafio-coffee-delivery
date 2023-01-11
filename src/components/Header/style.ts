@@ -50,7 +50,7 @@ export const DivNumberItensInCart = styled.div`
   position: absolute;
 
   top: 1.75rem;
-  right: 9.75rem;
+  right: 12.6rem;
 
   span {
     font-size: 0.55rem;

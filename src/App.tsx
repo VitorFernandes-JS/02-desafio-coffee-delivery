@@ -2,16 +2,19 @@ import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "./styles/global";
 import { defaultTheme } from "./styles/themes/default";
+import { darkTheme } from "./styles/themes/dark";
 import { Router } from "./Router";
-import { CoffeeInformationsContextProvider } from "./contexts/CoffeeInformationsContext";
+import {
+  useCoffeInformationsContext,
+} from "./contexts/CoffeeInformationsContext";
 
 export function App() {
+  const { theme } = useCoffeInformationsContext();
+
   return (
-    <ThemeProvider theme={defaultTheme}>
+    <ThemeProvider theme={theme === true ? defaultTheme : darkTheme}>
       <BrowserRouter>
-        <CoffeeInformationsContextProvider>
           <Router />
-        </CoffeeInformationsContextProvider>
       </BrowserRouter>
       <GlobalStyle />
     </ThemeProvider>

@@ -9,11 +9,13 @@ interface CoffeeInformationsContextData {
   handleRemoveCoffeeInCart: (id: string) => void;
   handleClickInButton: (titleButton: string) => void;
   handleRemoveTotalCoffeeInCart: (id: string) => void;
+  setTheme: (theme: boolean) => void;
   clickInButton: number;
   coffees: CoffeeProps[];
   quantityToCart: CardCoffeeHorizontalProps[];
   addToCart: boolean;
   visible: boolean;
+  theme: boolean;
 }
 
 export const CoffeeInformationsContext = createContext(
@@ -34,6 +36,7 @@ export function CoffeeInformationsContextProvider({
   const [clickInButton, setClickInButton] = useState(0);
   const [addToCart, setAddToCart] = useState(false);
   const [visible, setVisible] = useState(false);
+  const [theme, setTheme] = useState(false);
 
   function handleSendCoffeeToCart(id: string) {
     setQuantityToCart(
@@ -115,11 +118,13 @@ export function CoffeeInformationsContextProvider({
         handleAddCoffeeInCart,
         handleRemoveCoffeeInCart,
         handleRemoveTotalCoffeeInCart,
+        setTheme,
         clickInButton,
         coffees,
         quantityToCart,
         addToCart,
         visible,
+        theme,
       }}
     >
       {children}

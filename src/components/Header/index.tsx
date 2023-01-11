@@ -6,23 +6,31 @@ import {
   DivNumberItensInCart,
   ButtonMoon,
 } from "./style";
-import Logo from "../../assets/logo.png";
+import LogoDefault from "../../assets/logo.png";
+import LogoDark from "../../assets/logo-dark.png";
 import { MapPin, Moon, ShoppingCart } from "phosphor-react";
 import { NavLink } from "react-router-dom";
-import { CoffeeInformationsContext } from "../../contexts/CoffeeInformationsContext";
-import { useContext } from "react";
+import { useCoffeInformationsContext } from "../../contexts/CoffeeInformationsContext";
 
 export function Header() {
-  const { coffees, addToCart } = useContext(CoffeeInformationsContext);
+  const { coffees, addToCart, setTheme, theme } = useCoffeInformationsContext();
 
   const numberOfCoffeesSelectedForTheCart = coffees.filter(
     (item) => item.quantity
   );
 
+  function handleTheme() {
+    if (theme === false) {
+      return setTheme(true) ;
+    } return setTheme(false);
+  }
+
+  console.log(theme);
+
   return (
     <HeaderContainer>
       <NavLink to="/" title="Home">
-        <img src={Logo} />
+        <img src={theme === true ? LogoDefault : LogoDark} />
       </NavLink>
       <DivAdressAndShoppingCart>
         <NavLink to="/cart" title="Endereço" style={{ textDecoration: "none" }}>
@@ -52,7 +60,7 @@ export function Header() {
           </ButtonShoppingCart>
         </NavLink>
         <div>
-        <ButtonMoon title="Tema">
+        <ButtonMoon title="Tema" onClick={handleTheme}>
           <Moon size={20} weight="fill" />
         </ButtonMoon>
         </div>

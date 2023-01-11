@@ -44,7 +44,7 @@ export const DivMapAndText = styled.div`
 `;
 
 const InputBase = styled.input`
-  background-color: ${({ theme }) => theme.input};
+  background-color: ${({ theme }) => theme.button};
   border-radius: 4px;
 
   padding: 0.5rem 1rem;
@@ -54,7 +54,7 @@ const InputBase = styled.input`
 
   color: ${({ theme }) => theme.text};
 
-  border: 1px solid ${({ theme }) => theme.button};
+  border: none;
   margin-bottom: 1rem;
   margin-left: 0.85rem;
 
