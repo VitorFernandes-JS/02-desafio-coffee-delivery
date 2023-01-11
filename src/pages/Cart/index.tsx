@@ -14,7 +14,7 @@ import {
   TitleCoffees,
 } from "./style";
 
-import { CardPaymentMethods } from "../../components/CardPaymentMethods";
+import { CardPaymentMethods } from "./components/CardPaymentMethods";
 import { CardCoffeeHorizontal } from "../../components/CardCoffeeHorizontal";
 import { useCoffeInformationsContext } from "../../contexts/CoffeeInformationsContext";
 import { FormProvider, useForm } from "react-hook-form";

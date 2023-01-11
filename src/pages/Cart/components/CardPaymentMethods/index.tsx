@@ -1,5 +1,5 @@
 import { Bank, CreditCard, CurrencyDollar, Money } from "phosphor-react";
-import { useCoffeInformationsContext } from "../../contexts/CoffeeInformationsContext";
+import { useCoffeInformationsContext } from "../../../../contexts/CoffeeInformationsContext";
 import {
   ButtonPaymentMethodCredit,
   ButtonPaymentMethodDebit,
