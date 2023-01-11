@@ -48,7 +48,7 @@ interface AddressFormData {
 }
 
 export function Cart() {
-  const { quantityToCart } = useCoffeInformationsContext();
+  const { quantityToCart, coffees } = useCoffeInformationsContext();
 
   const newAddrressForm = useForm<AddressFormData>({
     resolver: zodResolver(newAddressFormValidationSchema),
@@ -66,6 +66,11 @@ export function Cart() {
   function handleForm() {
     reset();
   }
+
+  const sumTotalItens = coffees.reduce((acc, item) => {
+    return acc + item.value * item.quantity;
+  }, 0);
+  const sumTotal = sumTotalItens + 5;
 
   const cep = watch("cep");
   const street = watch("street");
@@ -90,7 +95,7 @@ export function Cart() {
             <TitleCoffees>Cafés selecionados</TitleCoffees>
 
             <DivInformationsCoffeeInCart>
-              {quantityToCart.length === 0  && (
+              {quantityToCart.length === 0 && (
                 <div>
                   <TextNoCoffee>Nenhum café selecionado.</TextNoCoffee>
                 </div>
@@ -111,7 +116,10 @@ export function Cart() {
               <DivInformationsOrder>
                 <DivTotalItems>
                   <span>Total de itens:</span>
-                  <span>R$ 5,00</span>
+                  <span>{sumTotalItens.toLocaleString(
+                    "pt-BR",
+                    { style: "currency", currency: "BRL" }
+                  )}</span>
                 </DivTotalItems>
 
                 <DivFreight>
@@ -121,7 +129,10 @@ export function Cart() {
 
                 <DivTotal>
                   <strong>Total:</strong>
-                  <strong>R$ 10,00</strong>
+                  <strong>{sumTotal.toLocaleString(
+                    "pt-BR",
+                    { style: "currency", currency: "BRL" }
+                  )}</strong>
                 </DivTotal>
 
                 <NavLink to={"/finished-order"}>
