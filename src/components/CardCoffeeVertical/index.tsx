@@ -40,7 +40,6 @@ export function CardCoffeeVertical({
   image,
   quantity,
 }: CardCoffeeVerticalProps) {
-  
   const {
     handleSendCoffeeToCart,
     handleAddCoffeeInCart,
@@ -50,7 +49,7 @@ export function CardCoffeeVertical({
 
   function visibleModalToast() {
     if (visible === true) {
-      toast.success('Café adicionado ao carrinho', {
+      toast.success("Café adicionado ao carrinho", {
         position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
@@ -59,7 +58,7 @@ export function CardCoffeeVertical({
         draggable: true,
         progress: undefined,
         theme: "light",
-        });
+      });
     }
   }
 
@@ -99,24 +98,21 @@ export function CardCoffeeVertical({
         </Value>
 
         <DivButtonsRemoveAndAdd>
-          <ButtonRemove>
-            <Minus
-              weight="bold"
-              size={14}
-              onClick={() => {
-                handleRemoveCoffeeInCart(id);
-              }}
-            />
+          <ButtonRemove
+            disabled={quantity === 0}
+            onClick={() => {
+              handleRemoveCoffeeInCart(id);
+            }}
+          >
+            <Minus weight="bold" size={14} />
           </ButtonRemove>
           <span>{quantity}</span>
-          <ButtonAdd>
-            <Plus
-              weight="bold"
-              size={14}
-              onClick={() => {
-                handleAddCoffeeInCart(id);
-              }}
-            />
+          <ButtonAdd
+            onClick={() => {
+              handleAddCoffeeInCart(id);
+            }}
+          >
+            <Plus weight="bold" size={14} />
           </ButtonAdd>
         </DivButtonsRemoveAndAdd>
 

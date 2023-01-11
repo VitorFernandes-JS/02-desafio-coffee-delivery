@@ -53,11 +53,13 @@ export function CardCoffeeHorizontal({
           </ValueCoffee>
         </DivTitleAndValue>
         <DivButtons>
+          
           <ButtonLessAndmore>
             <ButtonRemove
               type="button"
               onClick={() => {
                 handleRemoveCoffeeInCart(id);
+                console.log(quantity);
               }}
             >
               <Minus size={14} color="#8047F8" />
@@ -67,11 +69,13 @@ export function CardCoffeeHorizontal({
               type="button"
               onClick={() => {
                 handleAddCoffeeInCart(id);
+                console.log("add");
               }}
             >
               <Plus size={14} color="#8047F8" />
             </ButtonAdd>
           </ButtonLessAndmore>
+
           <ButtonRemoveToCart type="button">
             <Trash size={14} color="#8047F8" />
             <span>REMOVER</span>

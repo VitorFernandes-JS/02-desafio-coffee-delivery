@@ -50,10 +50,9 @@ export const DivButtons = styled.div`
   display: flex;
 `;
 
-export const ButtonLessAndmore = styled.button`
+export const ButtonLessAndmore = styled.div`
   padding: 0.3rem;
   border-radius: 6px;
-  border: none;
   background-color: ${(props) => props.theme.button};
 
   width: 4.75rem;

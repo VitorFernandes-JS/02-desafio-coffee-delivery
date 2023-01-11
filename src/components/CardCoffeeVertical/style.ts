@@ -104,6 +104,11 @@ const Button = styled.button`
   &:hover {
     opacity: 0.6;
   }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 `;
 
 export const ButtonRemove = styled(Button)``;
