@@ -9,10 +9,6 @@ import {
 } from "./style";
 
 export function CardPaymentMethods() {
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-  }
-
   return (
     <DivPaymentMethods>
       <DivDollarAndText>

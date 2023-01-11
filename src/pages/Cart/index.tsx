@@ -23,38 +23,21 @@ import * as zod from "zod";
 import { AddressForm } from "./components/AddressForm";
 
 const newAddressFormValidationSchema = zod.object({
-  zipCode: zod
+  cep: zod.number().min(8, "O CEP precisa de 8 digitos!"),
+  street: zod.string().min(1, "A rua precisa de pelo menos 3 caracteres!"),
+  number: zod
     .number()
-    .min(8, "O CEP precisa de 8 digitos!")
-    .max(8, "O CEP tem apenas 8 digitos!"),
-  street: zod
-    .string()
-    .min(3, "A rua precisa de pelo menos 3 caracteres!")
-    .max(60, "A rua não pode ser maior que 60 caracteres!"),
-    number: zod
-    .number()
-    .min(3, "O número da resiência precisa de pelo menos 3 caracteres!")
-    .max(5, "O número da resiência não pode ser maior que 5 caracteres!"),
+    .min(1, "O número da resiência precisa de pelo menos 3 caracteres!"),
   complement: zod
     .string()
-    .min(3, "O complemento precisa de pelo menos 3 caracteres!")
-    .max(60, "O complemento não pode ser maior que 60 caracteres!"),
-  district: zod
-    .string()
-    .min(3, "O bairro precisa de pelo menos 3 caracteres!")
-    .max(60, "O bairro não pode ser maior que 60 caracteres!"),
-  city: zod
-    .string()
-    .min(3, "A cidade precisa de pelo menos 3 caracteres!")
-    .max(30, "A cidade não pode ser maior que 60 caracteres!"),
-  uf: zod
-    .string()
-    .min(2, "Preencha um UF válido!")
-    .max(2, "Preencha um UF válido!"),
-})
+    .min(1, "O complemento precisa de pelo menos 3 caracteres!"),
+  district: zod.string().min(1, "O bairro precisa de pelo menos 3 caracteres!"),
+  city: zod.string().min(1, "A cidade precisa de pelo menos 3 caracteres!"),
+  uf: zod.string().min(1, "Preencha um UF válido!"),
+});
 
 interface AddressFormData {
-  zipCode: number;
+  cep: number;
   street: string;
   number: number;
   complement: string;
@@ -81,10 +64,20 @@ export function Cart() {
 
   function handleForm(data: AddressFormData) {
     console.log({ data });
+    reset();
   }
 
+  const cep = watch("cep");
+  const street = watch("street");
+  const number = watch("number");
+  const district = watch("district");
+  const city = watch("city");
+  const uf = watch("uf");
+
+  console.log({ cep, street, number, district, city, uf });
+
   return (
-    <>
+    <div>
       <Header />
       <CartContainer>
         <Form onSubmit={handleSubmit(handleForm)} action="">
@@ -133,7 +126,12 @@ export function Cart() {
                   <strong>R$ 10,00</strong>
                 </DivTotal>
 
-                <ButtonConfirmOrder type="submit">
+                <ButtonConfirmOrder
+                  type="submit"
+                  disabled={
+                    !street || !district || !city || !uf || !cep || !number
+                  }
+                >
                   CONFIRMAR PEDIDO
                 </ButtonConfirmOrder>
               </DivInformationsOrder>
@@ -141,6 +139,6 @@ export function Cart() {
           </DivTitleCoffeeAndInformationsCoffe>
         </Form>
       </CartContainer>
-    </>
+    </div>
   );
 }

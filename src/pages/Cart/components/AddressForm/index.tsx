@@ -36,20 +36,20 @@ export function AddressForm() {
         <div>
           <InputCEP
             title="CEP"
-            id="zipCode"
+            id="cep"
             placeholder="CEP"
-            required
             type="number"
-            disabled={quantityToCart.length === 0}
-            {...register("zipCode", { required: true, valueAsNumber: true, min: 1 })}
+            required
+            // disabled={quantityToCart.length === 0}
+            {...register("cep", { valueAsNumber: true, min: 1 })}
           />
           <InputStreet
             title="Rua"
             id="street"
             placeholder="Rua"
             required
-            disabled={quantityToCart.length === 0}
-            {...register("street", { required: true })}
+            // disabled={quantityToCart.length === 0}
+            {...register("street")}
           />
         </div>
         <div>
@@ -59,14 +59,14 @@ export function AddressForm() {
             id="number"
             placeholder="Número"
             required
-            disabled={quantityToCart.length === 0}
-            {...register("number", { required: true, valueAsNumber: true, min: 1 })}
+            // disabled={quantityToCart.length === 0}
+            {...register("number", { valueAsNumber: true, min: 1 })}
           />
           <InputComplement
             title="Complemento"
             id="complement"
             placeholder="Complemento"
-            disabled={quantityToCart.length === 0}
+            // disabled={quantityToCart.length === 0}
             {...register("complement")}
           />
         </div>
@@ -76,24 +76,24 @@ export function AddressForm() {
             id="district"
             placeholder="Bairro"
             required
-            disabled={quantityToCart.length === 0}
-            {...register("district", { required: true })}
+            // disabled={quantityToCart.length === 0}
+            {...register("district")}
           />
           <InputCity
             title="Cidade"
             id="city"
             placeholder="Cidade"
             required
-            disabled={quantityToCart.length === 0}
-            {...register("city", { required: true })}
+            // disabled={quantityToCart.length === 0}
+            {...register("city")}
           />
           <InputState
             title="UF"
-            id="state"
+            id="uf"
             placeholder="UF"
             required
-            disabled={quantityToCart.length === 0}
-            {...register("state", { required: true })}
+            // disabled={quantityToCart.length === 0}
+            {...register("uf")}
           />
         </div>
       </BodyAddress>
