@@ -57,6 +57,25 @@ export function CoffeeInformationsContextProvider({
     setAddToCart(true);
   }
 
+  // function handleSendCoffeeToCart(id: string) {
+  //   const findedCoffee = coffees.find((item) => item.id === id);
+  //   setQuantityToCart((state) => {
+  //     return [
+  //       ...state,
+  //       {
+  //         id: findedCoffee!.id,
+  //         title: findedCoffee!.title,
+  //         value: findedCoffee!.value,
+  //         quantity: findedCoffee!.quantity,
+  //         image: findedCoffee!.image,
+  //       },
+  //     ];
+  //   });
+
+  //   setVisible(true);
+  //   setAddToCart(true);
+  // } // Maneira mais performatica e correta de se fazer o handleSendCoffeeToCart
+
   function handleAddCoffeeInCart(id: string) {
     setCoffees((state) =>
       state.map((item) => {

@@ -25,8 +25,6 @@ export function Header() {
     } return setTheme(false);
   }
 
-  console.log(theme);
-
   return (
     <HeaderContainer>
       <NavLink to="/" title="Home">

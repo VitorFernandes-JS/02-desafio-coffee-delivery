@@ -48,7 +48,10 @@ interface AddressFormData {
 }
 
 export function Cart() {
-  const { quantityToCart, coffees } = useCoffeInformationsContext();
+  const { coffees } = useCoffeInformationsContext();
+
+  const selectedsCoffeesToCart = coffees.filter((item) => item.quantity);
+  console.log(selectedsCoffeesToCart);
 
   const newAddrressForm = useForm<AddressFormData>({
     resolver: zodResolver(newAddressFormValidationSchema),
@@ -64,6 +67,7 @@ export function Cart() {
   const { handleSubmit, watch, reset } = newAddrressForm;
 
   function handleForm() {
+    
     reset();
   }
 
@@ -95,12 +99,12 @@ export function Cart() {
             <TitleCoffees>Cafés selecionados</TitleCoffees>
 
             <DivInformationsCoffeeInCart>
-              {quantityToCart.length === 0 && (
+              {selectedsCoffeesToCart.length === 0 && (
                 <div>
                   <TextNoCoffee>Nenhum café selecionado.</TextNoCoffee>
                 </div>
               )}
-              {quantityToCart.map((item) => {
+              {selectedsCoffeesToCart.map((item) => {
                 return (
                   <CardCoffeeHorizontal
                     id={item.id}
@@ -116,10 +120,12 @@ export function Cart() {
               <DivInformationsOrder>
                 <DivTotalItems>
                   <span>Total de itens:</span>
-                  <span>{sumTotalItens.toLocaleString(
-                    "pt-BR",
-                    { style: "currency", currency: "BRL" }
-                  )}</span>
+                  <span>
+                    {sumTotalItens.toLocaleString("pt-BR", {
+                      style: "currency",
+                      currency: "BRL",
+                    })}
+                  </span>
                 </DivTotalItems>
 
                 <DivFreight>
@@ -129,10 +135,12 @@ export function Cart() {
 
                 <DivTotal>
                   <strong>Total:</strong>
-                  <strong>{sumTotal.toLocaleString(
-                    "pt-BR",
-                    { style: "currency", currency: "BRL" }
-                  )}</strong>
+                  <strong>
+                    {sumTotal.toLocaleString("pt-BR", {
+                      style: "currency",
+                      currency: "BRL",
+                    })}
+                  </strong>
                 </DivTotal>
 
                 <NavLink to={"/finished-order"}>

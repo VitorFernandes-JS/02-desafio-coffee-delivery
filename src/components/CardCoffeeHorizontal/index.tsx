@@ -30,7 +30,6 @@ export function CardCoffeeHorizontal({
   image,
   quantity,
 }: CardCoffeeHorizontalProps) {
-
   const {
     handleAddCoffeeInCart,
     handleRemoveCoffeeInCart,
@@ -53,7 +52,6 @@ export function CardCoffeeHorizontal({
           </ValueCoffee>
         </DivTitleAndValue>
         <DivButtons>
-          
           <ButtonLessAndmore>
             <ButtonRemove
               type="button"
@@ -74,7 +72,12 @@ export function CardCoffeeHorizontal({
             </ButtonAdd>
           </ButtonLessAndmore>
 
-          <ButtonRemoveToCart type="button" onClick={() => {handleRemoveTotalCoffeeInCart(id)}}>
+          <ButtonRemoveToCart
+            type="button"
+            onClick={() => {
+              handleRemoveTotalCoffeeInCart(id);
+            }}
+          >
             <Trash size={14} color="#8047F8" />
             <span>REMOVER</span>
           </ButtonRemoveToCart>

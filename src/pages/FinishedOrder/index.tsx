@@ -17,7 +17,6 @@ import {
 } from "./style";
 import { useCoffeInformationsContext } from "../../contexts/CoffeeInformationsContext";
 export function FinishedOrder() {
-
   const { clickInButton } = useCoffeInformationsContext();
 
   return (
@@ -63,15 +62,13 @@ export function FinishedOrder() {
                 <div>
                   <span>Pagamento na entrega</span>
                   <br />
-                  {
-                    clickInButton === 0 ? (
-                      <strong>Cartão de crédito</strong>
-                    ) : clickInButton === 1 ? (
-                      <strong>Cartão de débito</strong>
-                    ) : (
-                      <strong>Dinheiro</strong>
-                    )
-                  }
+                  {clickInButton === 0 ? (
+                    <strong>Cartão de crédito</strong>
+                  ) : clickInButton === 1 ? (
+                    <strong>Cartão de débito</strong>
+                  ) : (
+                    <strong>Dinheiro</strong>
+                  )}
                 </div>
               </DivDollarAndText>
             </DivBody>
