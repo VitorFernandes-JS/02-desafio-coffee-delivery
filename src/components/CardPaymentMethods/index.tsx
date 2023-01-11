@@ -1,4 +1,5 @@
 import { Bank, CreditCard, CurrencyDollar, Money } from "phosphor-react";
+import { useCoffeInformationsContext } from "../../contexts/CoffeeInformationsContext";
 import {
   ButtonPaymentMethodCredit,
   ButtonPaymentMethodDebit,
@@ -9,6 +10,9 @@ import {
 } from "./style";
 
 export function CardPaymentMethods() {
+
+  const { handleClickInButton } = useCoffeInformationsContext();
+
   return (
     <DivPaymentMethods>
       <DivDollarAndText>
@@ -24,15 +28,15 @@ export function CardPaymentMethods() {
       </DivDollarAndText>
 
       <DivButtonsPaymentMethodCredit>
-        <ButtonPaymentMethodCredit type="button">
+        <ButtonPaymentMethodCredit type="button" onClick={() => {handleClickInButton("CARTAO DE CREDITO")}}>
           <CreditCard size={18} color="#8047F8" />
           <span>CARTÃO DE CRÉDITO</span>
         </ButtonPaymentMethodCredit>
-        <ButtonPaymentMethodDebit type="button">
+        <ButtonPaymentMethodDebit type="button" onClick={() => {handleClickInButton("CARTAO DE DEBITO")}}>
           <Bank size={18} color="#8047F8" />
           <span>CARTÃO DE DÉBITO</span>
         </ButtonPaymentMethodDebit>
-        <ButtonPaymentMethodMoney type="button">
+        <ButtonPaymentMethodMoney type="button" onClick={() => {handleClickInButton("DINHEIRO")}}>
           <Money size={18} color="#8047F8" />
           <span>DINHEIRO</span>
         </ButtonPaymentMethodMoney>

@@ -15,7 +15,11 @@ import {
   DivBody,
   DivImg,
 } from "./style";
+import { useCoffeInformationsContext } from "../../contexts/CoffeeInformationsContext";
 export function FinishedOrder() {
+
+  const { clickInButton } = useCoffeInformationsContext();
+
   return (
     <>
       <Header />
@@ -59,7 +63,15 @@ export function FinishedOrder() {
                 <div>
                   <span>Pagamento na entrega</span>
                   <br />
-                  <strong> Cartão de Crédito</strong>
+                  {
+                    clickInButton === 0 ? (
+                      <strong>Cartão de crédito</strong>
+                    ) : clickInButton === 1 ? (
+                      <strong>Cartão de débito</strong>
+                    ) : (
+                      <strong>Dinheiro</strong>
+                    )
+                  }
                 </div>
               </DivDollarAndText>
             </DivBody>

@@ -21,6 +21,7 @@ import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as zod from "zod";
 import { AddressForm } from "./components/AddressForm";
+import { NavLink } from "react-router-dom";
 
 const newAddressFormValidationSchema = zod.object({
   cep: zod.number().min(8, "O CEP precisa de 8 digitos!"),
@@ -74,8 +75,6 @@ export function Cart() {
   const city = watch("city");
   const uf = watch("uf");
 
-  console.log({ cep, street, number, district, city, uf });
-
   return (
     <div>
       <Header />
@@ -126,6 +125,7 @@ export function Cart() {
                   <strong>R$ 10,00</strong>
                 </DivTotal>
 
+                <NavLink to={"/finished-order"}>
                 <ButtonConfirmOrder
                   type="submit"
                   disabled={
@@ -134,6 +134,7 @@ export function Cart() {
                 >
                   CONFIRMAR PEDIDO
                 </ButtonConfirmOrder>
+                </NavLink>
               </DivInformationsOrder>
             </DivInformationsCoffeeInCart>
           </DivTitleCoffeeAndInformationsCoffe>

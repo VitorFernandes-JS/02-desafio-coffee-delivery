@@ -7,6 +7,8 @@ interface CoffeeInformationsContextData {
   handleSendCoffeeToCart: (id: string) => void;
   handleAddCoffeeInCart: (id: string) => void;
   handleRemoveCoffeeInCart: (id: string) => void;
+  handleClickInButton: (titleButton: string) => void;
+  clickInButton: number;
   coffees: CoffeeProps[];
   quantityToCart: CardCoffeeHorizontalProps[];
 }
@@ -26,6 +28,18 @@ export function CoffeeInformationsContextProvider({
   const [quantityToCart, setQuantityToCart] = useState<
     CardCoffeeHorizontalProps[]
   >([]);
+  const [clickInButton, setClickInButton] = useState(0);
+
+  function handleClickInButton(titleButton: string) {
+    if (titleButton === "CARTAO DE CREDITO") {
+      return setClickInButton((state) => (state = 0));
+    }
+    if (titleButton === "CARTAO DE DEBITO") {
+      return setClickInButton((state) => (state = 1));
+    } else {
+      return setClickInButton((state) => (state = 2));
+    }
+  }
 
   function handleSendCoffeeToCart(id: string) {
     setQuantityToCart(
@@ -74,6 +88,8 @@ export function CoffeeInformationsContextProvider({
   return (
     <CoffeeInformationsContext.Provider
       value={{
+        handleClickInButton,
+        clickInButton,
         handleSendCoffeeToCart,
         handleAddCoffeeInCart,
         handleRemoveCoffeeInCart,
