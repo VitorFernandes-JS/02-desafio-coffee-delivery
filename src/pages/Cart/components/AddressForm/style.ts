@@ -58,6 +58,15 @@ const InputBase = styled.input`
   margin-bottom: 1rem;
   margin-left: 0.85rem;
 
+  ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  ::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
   &:disabled {
     opacity: 0.7;
     cursor: not-allowed;

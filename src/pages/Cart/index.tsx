@@ -23,7 +23,7 @@ import * as zod from "zod";
 import { AddressForm } from "./components/AddressForm";
 
 const newAddressFormValidationSchema = zod.object({
-  cep: zod
+  zipCode: zod
     .number()
     .min(8, "O CEP precisa de 8 digitos!")
     .max(8, "O CEP tem apenas 8 digitos!"),
@@ -31,7 +31,7 @@ const newAddressFormValidationSchema = zod.object({
     .string()
     .min(3, "A rua precisa de pelo menos 3 caracteres!")
     .max(60, "A rua não pode ser maior que 60 caracteres!"),
-  num: zod
+    number: zod
     .number()
     .min(3, "O número da resiência precisa de pelo menos 3 caracteres!")
     .max(5, "O número da resiência não pode ser maior que 5 caracteres!"),
@@ -51,12 +51,12 @@ const newAddressFormValidationSchema = zod.object({
     .string()
     .min(2, "Preencha um UF válido!")
     .max(2, "Preencha um UF válido!"),
-});
+})
 
 interface AddressFormData {
-  cep: number;
+  zipCode: number;
   street: string;
-  num: number;
+  number: number;
   complement: string;
   district: string;
   city: string;
@@ -69,9 +69,7 @@ export function Cart() {
   const newAddrressForm = useForm<AddressFormData>({
     resolver: zodResolver(newAddressFormValidationSchema),
     defaultValues: {
-      cep: 0,
       street: "",
-      num: 0,
       complement: "",
       district: "",
       city: "",
@@ -79,13 +77,21 @@ export function Cart() {
     },
   });
 
+  const { handleSubmit, watch, reset } = newAddrressForm;
+
+  function handleForm(data: AddressFormData) {
+    console.log({ data });
+  }
+
   return (
     <>
       <Header />
       <CartContainer>
-        <Form>
+        <Form onSubmit={handleSubmit(handleForm)} action="">
           <DivAdressAndMethodsPayment>
-          <AddressForm />
+            <FormProvider {...newAddrressForm}>
+              <AddressForm />
+            </FormProvider>
             <CardPaymentMethods />
           </DivAdressAndMethodsPayment>
 

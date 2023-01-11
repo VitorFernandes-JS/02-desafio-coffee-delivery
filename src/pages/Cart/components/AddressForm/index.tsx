@@ -1,9 +1,6 @@
 import { MapPinLine } from "phosphor-react";
 import { useFormContext } from "react-hook-form";
-import {
-  CoffeeInformationsContext,
-  useCoffeInformationsContext,
-} from "../../../../contexts/CoffeeInformationsContext";
+import { useCoffeInformationsContext } from "../../../../contexts/CoffeeInformationsContext";
 import {
   BodyAddress,
   DivMapAndText,
@@ -19,7 +16,7 @@ import {
 
 export function AddressForm() {
   const { quantityToCart } = useCoffeInformationsContext();
-  // const { register } = useFormContext();
+  const { register } = useFormContext();
 
   return (
     <FormContainer>
@@ -39,50 +36,64 @@ export function AddressForm() {
         <div>
           <InputCEP
             title="CEP"
+            id="zipCode"
             placeholder="CEP"
             required
             type="number"
             disabled={quantityToCart.length === 0}
-            maxLength={8}
+            {...register("zipCode", { required: true, valueAsNumber: true, min: 1 })}
           />
           <InputStreet
             title="Rua"
+            id="street"
             placeholder="Rua"
             required
             disabled={quantityToCart.length === 0}
+            {...register("street", { required: true })}
           />
         </div>
         <div>
           <InputNumber
+            type="number"
             title="Número"
+            id="number"
             placeholder="Número"
             required
             disabled={quantityToCart.length === 0}
+            {...register("number", { required: true, valueAsNumber: true, min: 1 })}
           />
           <InputComplement
             title="Complemento"
+            id="complement"
             placeholder="Complemento"
             disabled={quantityToCart.length === 0}
+            {...register("complement")}
           />
         </div>
         <div>
           <InputDistrict
             title="Bairro"
+            id="district"
             placeholder="Bairro"
             required
             disabled={quantityToCart.length === 0}
+            {...register("district", { required: true })}
           />
           <InputCity
             title="Cidade"
+            id="city"
             placeholder="Cidade"
             required
             disabled={quantityToCart.length === 0}
+            {...register("city", { required: true })}
           />
           <InputState
             title="UF"
+            id="state"
             placeholder="UF"
             required
             disabled={quantityToCart.length === 0}
+            {...register("state", { required: true })}
           />
         </div>
       </BodyAddress>
