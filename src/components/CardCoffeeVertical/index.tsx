@@ -15,6 +15,7 @@ import {
 
 import { Minus, Plus, ShoppingCart } from "phosphor-react";
 import { useCoffeInformationsContext } from "../../contexts/CoffeeInformationsContext";
+import { toast } from "react-toastify";
 
 export interface CardCoffeeVerticalProps {
   id: string;
@@ -39,11 +40,28 @@ export function CardCoffeeVertical({
   image,
   quantity,
 }: CardCoffeeVerticalProps) {
+  
   const {
     handleSendCoffeeToCart,
     handleAddCoffeeInCart,
     handleRemoveCoffeeInCart,
+    visible,
   } = useCoffeInformationsContext();
+
+  function visibleModalToast() {
+    if (visible === true) {
+      toast.success('Café adicionado ao carrinho', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
+    }
+  }
 
   return (
     <DivCard>
@@ -109,6 +127,7 @@ export function CardCoffeeVertical({
             color={"#F3F2F2"}
             onClick={() => {
               handleSendCoffeeToCart(id);
+              visibleModalToast();
             }}
           />
         </ButtonToCart>

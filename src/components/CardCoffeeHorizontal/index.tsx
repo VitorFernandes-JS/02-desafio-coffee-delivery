@@ -1,5 +1,6 @@
 import { Minus, Plus, Trash } from "phosphor-react";
 import Cafe from "../../assets/Americano.png";
+import { useCoffeInformationsContext } from "../../contexts/CoffeeInformationsContext";
 import {
   ButtonLessAndmore,
   ButtonRemoveToCart,
@@ -20,7 +21,7 @@ export interface CardCoffeeHorizontalProps {
   title: string;
   value: number;
   image: string;
-  quantity:number
+  quantity: number;
 }
 
 export function CardCoffeeHorizontal({
@@ -30,6 +31,12 @@ export function CardCoffeeHorizontal({
   image,
   quantity,
 }: CardCoffeeHorizontalProps) {
+
+  const {
+    handleAddCoffeeInCart,
+    handleRemoveCoffeeInCart,
+  } = useCoffeInformationsContext();
+
   return (
     <CardCoffeeHorizontalContainer>
       <div>
@@ -38,22 +45,34 @@ export function CardCoffeeHorizontal({
       <DivTitleAndButtons>
         <DivTitleAndValue>
           <TitleCoffee>{title}</TitleCoffee>
-          <ValueCoffee>{value.toLocaleString(
-            "pt-br",
-            { style: "currency", currency: "BRL" }
-          )}</ValueCoffee>
+          <ValueCoffee>
+            {value.toLocaleString("pt-br", {
+              style: "currency",
+              currency: "BRL",
+            })}
+          </ValueCoffee>
         </DivTitleAndValue>
         <DivButtons>
           <ButtonLessAndmore>
-            <ButtonRemove>
+            <ButtonRemove
+              type="button"
+              onClick={() => {
+                handleRemoveCoffeeInCart(id);
+              }}
+            >
               <Minus size={14} color="#8047F8" />
             </ButtonRemove>
             <span>{quantity}</span>
-            <ButtonAdd>
+            <ButtonAdd
+              type="button"
+              onClick={() => {
+                handleAddCoffeeInCart(id);
+              }}
+            >
               <Plus size={14} color="#8047F8" />
             </ButtonAdd>
           </ButtonLessAndmore>
-          <ButtonRemoveToCart>
+          <ButtonRemoveToCart type="button">
             <Trash size={14} color="#8047F8" />
             <span>REMOVER</span>
           </ButtonRemoveToCart>

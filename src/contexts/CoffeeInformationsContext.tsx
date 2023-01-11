@@ -12,6 +12,7 @@ interface CoffeeInformationsContextData {
   coffees: CoffeeProps[];
   quantityToCart: CardCoffeeHorizontalProps[];
   addToCart: boolean;
+  visible: boolean;
 }
 
 export const CoffeeInformationsContext = createContext(
@@ -31,6 +32,7 @@ export function CoffeeInformationsContextProvider({
   >([]);
   const [clickInButton, setClickInButton] = useState(0);
   const [addToCart, setAddToCart] = useState(false);
+  const [visible, setVisible] = useState(false);
   
   function handleSendCoffeeToCart(id: string) {
     setQuantityToCart(
@@ -46,6 +48,7 @@ export function CoffeeInformationsContextProvider({
         };
       })
       );
+      setVisible(true);
       setAddToCart(true);
     }
     
@@ -99,6 +102,7 @@ export function CoffeeInformationsContextProvider({
         coffees,
         quantityToCart,
         addToCart,
+        visible,
       }}
     >
       {children}
