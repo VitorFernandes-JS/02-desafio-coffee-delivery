@@ -28,7 +28,7 @@ export function Header() {
   return (
     <HeaderContainer>
       <NavLink to="/" title="Home">
-        <img src={theme === true ? LogoDefault : LogoDark} />
+        <img src={theme === true ? LogoDark : LogoDefault} />
       </NavLink>
       <DivAdressAndShoppingCart>
         <NavLink to="/cart" title="Endereço" style={{ textDecoration: "none" }}>

@@ -12,7 +12,7 @@ export function App() {
   const { theme } = useCoffeInformationsContext();
 
   return (
-    <ThemeProvider theme={theme === true ? defaultTheme : darkTheme}>
+    <ThemeProvider theme={theme === true ? darkTheme : defaultTheme}>
       <BrowserRouter>
           <Router />
       </BrowserRouter>

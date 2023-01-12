@@ -68,7 +68,7 @@ export function Cart() {
 
   const { handleSubmit, watch, reset } = newAddrressForm;
 
-  function handleForm(data: any, e: HTMLFormElement) {
+  function handleForm() {
     reset();
     navigate("/finished-order");
   }
