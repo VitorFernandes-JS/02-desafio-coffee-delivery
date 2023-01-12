@@ -51,7 +51,6 @@ export function Cart() {
   const { coffees } = useCoffeInformationsContext();
 
   const selectedsCoffeesToCart = coffees.filter((item) => item.quantity);
-  console.log(selectedsCoffeesToCart);
 
   const newAddrressForm = useForm<AddressFormData>({
     resolver: zodResolver(newAddressFormValidationSchema),
@@ -66,8 +65,8 @@ export function Cart() {
 
   const { handleSubmit, watch, reset } = newAddrressForm;
 
-  function handleForm() {
-    
+  function handleForm(data: any) {
+    console.log(data)
     reset();
   }
 
@@ -143,7 +142,7 @@ export function Cart() {
                   </strong>
                 </DivTotal>
 
-                <NavLink to={"/finished-order"}>
+                {/* <NavLink to={"/finished-order"}> */}
                   <ButtonConfirmOrder
                     type="submit"
                     disabled={
@@ -152,7 +151,7 @@ export function Cart() {
                   >
                     CONFIRMAR PEDIDO
                   </ButtonConfirmOrder>
-                </NavLink>
+                {/* </NavLink> */}
               </DivInformationsOrder>
             </DivInformationsCoffeeInCart>
           </DivTitleCoffeeAndInformationsCoffe>
