@@ -21,7 +21,7 @@ import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as zod from "zod";
 import { AddressForm } from "./components/AddressForm";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const newAddressFormValidationSchema = zod.object({
   cep: zod.number().min(8, "O CEP precisa de 8 digitos!"),
@@ -50,6 +50,8 @@ interface AddressFormData {
 export function Cart() {
   const { coffees } = useCoffeInformationsContext();
 
+  const navigate = useNavigate();
+
   const selectedsCoffeesToCart = coffees.filter((item) => item.quantity);
 
   const newAddrressForm = useForm<AddressFormData>({
@@ -66,8 +68,9 @@ export function Cart() {
   const { handleSubmit, watch, reset } = newAddrressForm;
 
   function handleForm(data: any) {
-    console.log(data)
+    console.log(data);
     reset();
+    navigate("/finished-order");
   }
 
   const sumTotalItens = coffees.reduce((acc, item) => {
@@ -142,16 +145,14 @@ export function Cart() {
                   </strong>
                 </DivTotal>
 
-                {/* <NavLink to={"/finished-order"}> */}
-                  <ButtonConfirmOrder
-                    type="submit"
-                    disabled={
-                      !street || !district || !city || !uf || !cep || !number
-                    }
-                  >
-                    CONFIRMAR PEDIDO
-                  </ButtonConfirmOrder>
-                {/* </NavLink> */}
+                <ButtonConfirmOrder
+                  type="submit"
+                  disabled={
+                    !street || !district || !city || !uf || !cep || !number
+                  }
+                >
+                  CONFIRMAR PEDIDO
+                </ButtonConfirmOrder>
               </DivInformationsOrder>
             </DivInformationsCoffeeInCart>
           </DivTitleCoffeeAndInformationsCoffe>

@@ -6,9 +6,9 @@ import { FinishedOrder } from "./pages/FinishedOrder";
 export function Router() {
   return (
     <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/finished-order" element={<FinishedOrder />} />
+      <Route path="/" element={<Home />} />
+      <Route path="/cart" element={<Cart />} />
+      <Route path="/finished-order" element={<FinishedOrder />} />
     </Routes>
   );
 }
