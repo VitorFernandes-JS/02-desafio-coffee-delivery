@@ -16,8 +16,10 @@ import {
   DivImg,
 } from "./style";
 import { useCoffeInformationsContext } from "../../contexts/CoffeeInformationsContext";
+import { useAddressInformationsContext } from "../../contexts/AddressInformationsContext";
 export function FinishedOrder() {
   const { clickInButton } = useCoffeInformationsContext();
+  const { data } = useAddressInformationsContext();
 
   return (
     <>
@@ -37,9 +39,9 @@ export function FinishedOrder() {
                 </DivMap>
                 <div>
                   <span>
-                    Entrega em Rua João Daniel Martinelli, 102
+                    Entrega em {data.street}, {data.number}
                     <br />
-                    Farrapos - Porto Alegre, RS
+                    {data.district} - {data.city}, {data.uf}
                   </span>
                 </div>
               </DivMapAndText>

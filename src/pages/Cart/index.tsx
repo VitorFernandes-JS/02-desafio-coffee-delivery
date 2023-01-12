@@ -17,6 +17,7 @@ import {
 import { CardPaymentMethods } from "./components/CardPaymentMethods";
 import { CardCoffeeHorizontal } from "../../components/CardCoffeeHorizontal";
 import { useCoffeInformationsContext } from "../../contexts/CoffeeInformationsContext";
+import { useAddressInformationsContext } from "../../contexts/AddressInformationsContext";
 import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as zod from "zod";
@@ -67,8 +68,7 @@ export function Cart() {
 
   const { handleSubmit, watch, reset } = newAddrressForm;
 
-  function handleForm(data: any) {
-    console.log(data);
+  function handleForm(data: any, e: HTMLFormElement) {
     reset();
     navigate("/finished-order");
   }
