@@ -139,6 +139,16 @@ export const DivDollar = styled.div`
   border-radius: 999px;
 `;
 
+export const DivAdress = styled.div`
+  span:first-child {
+    text-transform: capitalize;
+  }
+
+  span:last-child { 
+    text-transform: uppercase;
+  }
+`
+
 export const DivImg = styled.div`
   margin-top: 3.75rem;
   margin-left: 4rem;

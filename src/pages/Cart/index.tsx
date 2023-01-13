@@ -50,6 +50,7 @@ interface AddressFormData {
 
 export function Cart() {
   const { coffees } = useCoffeInformationsContext();
+  const { data, setData } = useAddressInformationsContext();
 
   const navigate = useNavigate();
 
@@ -68,8 +69,16 @@ export function Cart() {
 
   const { handleSubmit, watch, reset } = newAddrressForm;
 
-  function handleForm() {
+  function handleForm(data: any) {
     reset();
+    console.log(data)
+    setData({
+      street: data.street,
+      number: data.number,
+      district: data.district,
+      city: data.city,
+      uf: data.uf,
+    })
     navigate("/finished-order");
   }
 

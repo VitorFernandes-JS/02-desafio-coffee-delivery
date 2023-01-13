@@ -5,15 +5,18 @@ import {
   HeaderContainer,
   DivNumberItensInCart,
   ButtonMoon,
+  DivCityAndUF
 } from "./style";
 import LogoDefault from "../../assets/logo.png";
 import LogoDark from "../../assets/logo-dark.png";
 import { MapPin, Moon, ShoppingCart } from "phosphor-react";
 import { NavLink } from "react-router-dom";
 import { useCoffeInformationsContext } from "../../contexts/CoffeeInformationsContext";
+import { useAddressInformationsContext } from "../../contexts/AddressInformationsContext";
 
 export function Header() {
   const { coffees, addToCart, setTheme, theme } = useCoffeInformationsContext();
+  const { data } = useAddressInformationsContext();
 
   const numberOfCoffeesSelectedForTheCart = coffees.filter(
     (item) => item.quantity
@@ -21,8 +24,9 @@ export function Header() {
 
   function handleTheme() {
     if (theme === false) {
-      return setTheme(true) ;
-    } return setTheme(false);
+      return setTheme(true);
+    }
+    return setTheme(false);
   }
 
   return (
@@ -34,7 +38,17 @@ export function Header() {
         <NavLink to="/cart" title="Endereço" style={{ textDecoration: "none" }}>
           <DivAdress>
             <MapPin size={22} weight="fill" />
-            <a href="#">Porto Alegre, RS</a>
+            {data.city === "" ? (
+              <span>Sem endereço</span>
+            ) : (
+              <DivCityAndUF>
+              <span>
+                {data.city}, 
+              </span>
+              <span> {data.uf}
+              </span>
+            </DivCityAndUF>
+            )}
           </DivAdress>
         </NavLink>
 
@@ -58,9 +72,9 @@ export function Header() {
           </ButtonShoppingCart>
         </NavLink>
         <div>
-        <ButtonMoon title="Tema" onClick={handleTheme}>
-          <Moon size={20} weight="fill" />
-        </ButtonMoon>
+          <ButtonMoon title="Tema" onClick={handleTheme}>
+            <Moon size={20} weight="fill" />
+          </ButtonMoon>
         </div>
       </DivAdressAndShoppingCart>
     </HeaderContainer>

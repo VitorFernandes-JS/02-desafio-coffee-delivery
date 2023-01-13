@@ -91,3 +91,13 @@ export const ButtonMoon = styled.button`
     opacity: 0.85;
   }
 `;
+
+export const DivCityAndUF = styled.div`
+  span:first-child {
+    text-transform: capitalize;
+  }
+
+  span:last-child {
+    text-transform: uppercase;
+  }
+`;

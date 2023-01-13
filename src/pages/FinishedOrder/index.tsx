@@ -14,12 +14,14 @@ import {
   Border,
   DivBody,
   DivImg,
+  DivAdress
 } from "./style";
 import { useCoffeInformationsContext } from "../../contexts/CoffeeInformationsContext";
 import { useAddressInformationsContext } from "../../contexts/AddressInformationsContext";
 export function FinishedOrder() {
   const { clickInButton } = useCoffeInformationsContext();
   const { data } = useAddressInformationsContext();
+  console.log("data: ", data);
 
   return (
     <>
@@ -37,13 +39,14 @@ export function FinishedOrder() {
                 <DivMap>
                   <MapPin weight="fill" size={16} />
                 </DivMap>
-                <div>
+                <DivAdress>
                   <span>
                     Entrega em {data.street}, {data.number}
                     <br />
-                    {data.district} - {data.city}, {data.uf}
+                    {data.district} - {data.city},
                   </span>
-                </div>
+                    <span> {data.uf}</span>
+                </DivAdress>
               </DivMapAndText>
 
               <DivTimerAndText>
