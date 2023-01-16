@@ -42,7 +42,7 @@ export const DivBody = styled.div`
 `;
 
 export const Border = styled.div`
-  padding: 0.10rem;
+  padding: 0.1rem;
   position: relative;
   background: linear-gradient(
     90deg,
@@ -144,10 +144,10 @@ export const DivAdress = styled.div`
     text-transform: capitalize;
   }
 
-  span:last-child { 
+  span:last-child {
     text-transform: uppercase;
   }
-`
+`;
 
 export const DivImg = styled.div`
   margin-top: 3.75rem;

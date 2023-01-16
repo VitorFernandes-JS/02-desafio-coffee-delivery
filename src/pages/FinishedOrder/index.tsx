@@ -14,7 +14,7 @@ import {
   Border,
   DivBody,
   DivImg,
-  DivAdress
+  DivAdress,
 } from "./style";
 import { useCoffeInformationsContext } from "../../contexts/CoffeeInformationsContext";
 import { useAddressInformationsContext } from "../../contexts/AddressInformationsContext";
@@ -45,7 +45,7 @@ export function FinishedOrder() {
                     <br />
                     {data.district} - {data.city},
                   </span>
-                    <span> {data.uf}</span>
+                  <span> {data.uf}</span>
                 </DivAdress>
               </DivMapAndText>
 

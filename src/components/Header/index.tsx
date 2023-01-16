@@ -5,7 +5,7 @@ import {
   HeaderContainer,
   DivNumberItensInCart,
   ButtonMoon,
-  DivCityAndUF
+  DivCityAndUF,
 } from "./style";
 import LogoDefault from "../../assets/logo.png";
 import LogoDark from "../../assets/logo-dark.png";
@@ -42,12 +42,9 @@ export function Header() {
               <span>Sem endereço</span>
             ) : (
               <DivCityAndUF>
-              <span>
-                {data.city}, 
-              </span>
-              <span> {data.uf}
-              </span>
-            </DivCityAndUF>
+                <span>{data.city},</span>
+                <span> {data.uf}</span>
+              </DivCityAndUF>
             )}
           </DivAdress>
         </NavLink>
