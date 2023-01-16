@@ -40,7 +40,7 @@ export function AddressForm() {
             placeholder="CEP"
             type="number"
             required
-            // disabled={quantityToCart.length === 0}
+            disabled={!quantityToCart.length}
             {...register("cep", { valueAsNumber: true, min: 1 })}
           />
           <InputStreet
@@ -48,7 +48,7 @@ export function AddressForm() {
             id="street"
             placeholder="Rua"
             required
-            // disabled={quantityToCart.length === 0}
+            disabled={!quantityToCart.length}
             {...register("street")}
           />
         </div>
@@ -59,14 +59,14 @@ export function AddressForm() {
             id="number"
             placeholder="Número"
             required
-            // disabled={quantityToCart.length === 0}
+            disabled={!quantityToCart.length}
             {...register("number", { valueAsNumber: true, min: 1 })}
           />
           <InputComplement
             title="Complemento"
             id="complement"
             placeholder="Complemento"
-            // disabled={quantityToCart.length === 0}
+            disabled={!quantityToCart.length}
             {...register("complement")}
           />
         </div>
@@ -76,7 +76,7 @@ export function AddressForm() {
             id="district"
             placeholder="Bairro"
             required
-            // disabled={quantityToCart.length === 0}
+            disabled={!quantityToCart.length}
             {...register("district")}
           />
           <InputCity
@@ -84,7 +84,7 @@ export function AddressForm() {
             id="city"
             placeholder="Cidade"
             required
-            // disabled={quantityToCart.length === 0}
+            disabled={!quantityToCart.length}
             {...register("city")}
           />
           <InputState
@@ -92,7 +92,7 @@ export function AddressForm() {
             id="uf"
             placeholder="UF"
             required
-            // disabled={quantityToCart.length === 0}
+            disabled={!quantityToCart.length}
             {...register("uf")}
           />
         </div>

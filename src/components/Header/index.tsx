@@ -23,7 +23,7 @@ export function Header() {
   );
 
   function handleTheme() {
-    if (theme === false) {
+    if (!theme) {
       return setTheme(true);
     }
     return setTheme(false);
@@ -32,19 +32,19 @@ export function Header() {
   return (
     <HeaderContainer>
       <NavLink to="/" title="Home">
-        <img src={theme === true ? LogoDark : LogoDefault} />
+        <img src={theme ? LogoDark : LogoDefault} />
       </NavLink>
       <DivAdressAndShoppingCart>
         <NavLink to="/cart" title="Endereço" style={{ textDecoration: "none" }}>
           <DivAdress>
             <MapPin size={22} weight="fill" />
-            {data.city === "" ? (
-              <span>Sem endereço</span>
-            ) : (
+            {data.city ? (
               <DivCityAndUF>
                 <span>{data.city},</span>
                 <span> {data.uf}</span>
               </DivCityAndUF>
+            ) : (
+              <span>Sem endereço</span>
             )}
           </DivAdress>
         </NavLink>
@@ -57,7 +57,7 @@ export function Header() {
           <ButtonShoppingCart>
             <ShoppingCart size={20} weight="fill" />
             {numberOfCoffeesSelectedForTheCart.length > 0 &&
-              addToCart === true && (
+              addToCart && (
                 <DivNumberItensInCart>
                   <span>
                     {numberOfCoffeesSelectedForTheCart.reduce((acc, coffee) => {
@@ -66,6 +66,8 @@ export function Header() {
                   </span>
                 </DivNumberItensInCart>
               )}
+
+             
           </ButtonShoppingCart>
         </NavLink>
         <div>

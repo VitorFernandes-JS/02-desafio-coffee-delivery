@@ -21,7 +21,12 @@ import { useAddressInformationsContext } from "../../contexts/AddressInformation
 export function FinishedOrder() {
   const { clickInButton } = useCoffeInformationsContext();
   const { data } = useAddressInformationsContext();
-  console.log("data: ", data);
+
+  const paymentType = {
+    0: "Cartão de crédito",
+    1: "Cartão de débito",
+    2: "Dinheiro",
+  };
 
   return (
     <>
@@ -67,13 +72,7 @@ export function FinishedOrder() {
                 <div>
                   <span>Pagamento na entrega</span>
                   <br />
-                  {clickInButton === 0 ? (
-                    <strong>Cartão de crédito</strong>
-                  ) : clickInButton === 1 ? (
-                    <strong>Cartão de débito</strong>
-                  ) : (
-                    <strong>Dinheiro</strong>
-                  )}
+                  <strong>{(paymentType as any)?.[clickInButton]}</strong>
                 </div>
               </DivDollarAndText>
             </DivBody>

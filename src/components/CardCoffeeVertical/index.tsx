@@ -48,7 +48,7 @@ export function CardCoffeeVertical({
   } = useCoffeInformationsContext();
 
   function visibleModalToast() {
-    if (visible === true) {
+    if (visible) {
       toast.success("Café adicionado ao carrinho", {
         position: "top-center",
         autoClose: 5000,
@@ -99,7 +99,7 @@ export function CardCoffeeVertical({
 
         <DivButtonsRemoveAndAdd>
           <ButtonRemove
-            disabled={quantity === 0}
+            disabled={!quantity}
             onClick={() => {
               handleRemoveCoffeeInCart(id);
             }}
@@ -116,7 +116,7 @@ export function CardCoffeeVertical({
           </ButtonAdd>
         </DivButtonsRemoveAndAdd>
 
-        <ButtonToCart disabled={quantity === 0}>
+        <ButtonToCart disabled={!quantity}>
           <ShoppingCart
             weight="fill"
             size={20}
