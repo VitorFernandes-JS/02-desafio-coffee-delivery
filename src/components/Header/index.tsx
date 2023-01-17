@@ -7,8 +7,8 @@ import {
   ButtonMoon,
   DivCityAndUF,
 } from "./style";
-import LogoDefault from "../../assets/logo.png";
-import LogoDark from "../../assets/logo-dark.png";
+import LogoDefault from "../../assets/Logo.png";
+import LogoDark from "../../assets/Logo-Dark.png";
 import { MapPin, Moon, ShoppingCart } from "phosphor-react";
 import { NavLink } from "react-router-dom";
 import { useCoffeInformationsContext } from "../../contexts/CoffeeInformationsContext";
